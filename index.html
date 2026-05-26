@@ -787,6 +787,196 @@
     font-size: 14px;
   }
 }
+    /* =========================
+   Why SilentGram block
+   ========================= */
+
+.why-block {
+  position: relative;
+  padding: 82px 0 96px;
+  border-top: 1px solid rgba(208, 171, 102, 0.12);
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  background:
+    radial-gradient(circle at 75% 32%, rgba(208, 171, 102, 0.10), transparent 26%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.06));
+}
+
+.why-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image: radial-gradient(circle, rgba(208, 171, 102, 0.75) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+}
+
+.why-shell {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  align-items: center;
+  gap: 70px;
+  min-height: 440px;
+}
+
+.why-copy {
+  max-width: 760px;
+}
+
+.why-title {
+  margin: 26px 0 0;
+  color: #f1f1f1;
+  font-size: clamp(54px, 5.4vw, 88px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  font-weight: 560;
+}
+
+.why-lead {
+  margin-top: 18px;
+  color: #ffffff;
+  font-size: clamp(24px, 2.4vw, 44px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+}
+
+.why-text {
+  margin-top: 28px;
+  max-width: 760px;
+  color: rgba(244, 238, 230, 0.84);
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+.why-visual {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.why-visual::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 194, 72, 0.22), rgba(208, 171, 102, 0.06) 52%, transparent 76%);
+  filter: blur(16px);
+}
+
+.why-symbol-wrap {
+  position: relative;
+  z-index: 2;
+  width: 220px;
+  height: 220px;
+  display: grid;
+  place-items: center;
+  border-radius: 42px;
+  background:
+    linear-gradient(180deg, rgba(255, 203, 95, 0.12), rgba(255, 203, 95, 0.03)),
+    rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 0 0 1px rgba(255, 191, 73, 0.14),
+    0 0 35px rgba(255, 183, 49, 0.20),
+    0 0 90px rgba(255, 183, 49, 0.14);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.why-symbol {
+  width: 126px;
+  height: 126px;
+  display: block;
+  color: #ffc14b;
+  filter:
+    drop-shadow(0 0 10px rgba(255, 191, 73, 0.55))
+    drop-shadow(0 0 28px rgba(255, 191, 73, 0.28));
+}
+
+.why-orbit {
+  position: absolute;
+  border: 1px solid rgba(255, 191, 73, 0.24);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.why-orbit-one {
+  width: 360px;
+  height: 180px;
+  transform: rotate(32deg);
+}
+
+.why-orbit-two {
+  width: 300px;
+  height: 132px;
+  transform: rotate(-24deg);
+}
+
+@media (max-width: 1100px) {
+  .why-shell {
+    grid-template-columns: 1fr;
+    gap: 44px;
+  }
+
+  .why-copy {
+    max-width: 100%;
+  }
+
+  .why-visual {
+    min-height: 320px;
+  }
+}
+
+@media (max-width: 760px) {
+  .why-block {
+    padding: 64px 0 72px;
+  }
+
+  .why-title {
+    font-size: clamp(40px, 11vw, 58px);
+    line-height: 1.02;
+  }
+
+  .why-lead {
+    font-size: 26px;
+  }
+
+  .why-text {
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .why-visual {
+    min-height: 260px;
+  }
+
+  .why-symbol-wrap {
+    width: 170px;
+    height: 170px;
+    border-radius: 30px;
+  }
+
+  .why-symbol {
+    width: 96px;
+    height: 96px;
+  }
+
+  .why-orbit-one {
+    width: 250px;
+    height: 120px;
+  }
+
+  .why-orbit-two {
+    width: 210px;
+    height: 100px;
+  }
+}
   </style>
 </head>
 
