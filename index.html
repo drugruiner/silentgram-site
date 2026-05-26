@@ -686,6 +686,107 @@
     display: none;
   }
 }
+    /* ===== FINAL HEADER FIX ===== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  width: 100%;
+  background: rgba(5, 5, 5, 0.62);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(208, 171, 102, 0.11);
+}
+
+.header-inner {
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+
+.header {
+  display: none;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #f4efe7;
+  font-size: 25px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  white-space: nowrap;
+  flex: 0 0 auto;
+}
+
+.logo-icon {
+  width: 25px;
+  height: 25px;
+  display: block;
+  color: #ffffff;
+  flex: 0 0 25px;
+  stroke: currentColor;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 34px;
+  margin-left: auto;
+  color: #f2eee7;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.018em;
+}
+
+.nav a {
+  position: relative;
+  color: #f2eee7;
+  opacity: 0.92;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.nav a:hover,
+.nav a:first-child {
+  color: #d0ab66;
+  opacity: 1;
+}
+
+.nav a::after,
+.nav a:first-child::after {
+  display: none;
+  content: none;
+}
+
+@media (max-width: 760px) {
+  .header-inner {
+    height: auto;
+    padding-top: 18px;
+    padding-bottom: 18px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .nav {
+    margin-left: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 18px;
+    font-size: 14px;
+  }
+}
   </style>
 </head>
 
@@ -702,25 +803,35 @@
     <div class="side-line left"></div>
     <div class="side-line right"></div>
 
-   <header class="container header">
-  <a class="logo" href="#hero">
-    <svg class="logo-icon" viewBox="0 0 32 32" aria-hidden="true">
-    <path
-      d="M5.2 16.7L25.8 6.6C27.4 5.8 29 7.4 28.2 9L18.1 29.6C17.3 31.2 15 30.9 14.7 29.1L13.2 20.1L5.8 18.4C4.1 18 3.7 17.4 5.2 16.7Z"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2.8"
-      stroke-linejoin="round"
-    />
-    <path
-      d="M13.5 19.7L20.2 13"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2.8"
-      stroke-linecap="round"
-    />
-  </svg>
-  <span>SilentGram</span>
+   <header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="#hero">
+      <svg class="logo-icon" viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          d="M5.2 16.7L25.8 6.6C27.4 5.8 29 7.4 28.2 9L18.1 29.6C17.3 31.2 15 30.9 14.7 29.1L13.2 20.1L5.8 18.4C4.1 18 3.7 17.4 5.2 16.7Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.8"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M13.5 19.7L20.2 13"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.8"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>SilentGram</span>
+    </a>
+
+    <nav class="nav">
+      <a href="#hero">Home</a>
+      <a href="#features">Преимущества</a>
+      <a href="#tools">Функции</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+  </div>
   </a>
 
   <nav class="nav">
