@@ -1665,6 +1665,196 @@
     height: 112px !important;
   }
 }
+    /* =========================
+   Open source privacy block
+   ========================= */
+
+.opensource-section {
+  position: relative;
+  padding: 0;
+  border-top: 1px solid rgba(208, 171, 102, 0.12);
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  background:
+    radial-gradient(circle at 14% 8%, rgba(208, 171, 102, 0.10), transparent 22%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.04));
+  overflow: hidden;
+}
+
+.opensource-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(208, 171, 102, 0.72) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, transparent, black 10%, black 90%, transparent);
+}
+
+.opensource-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.opensource-top-line {
+  height: 54px;
+  background:
+    repeating-linear-gradient(
+      -72deg,
+      rgba(255, 255, 255, 0.11) 0 1px,
+      transparent 1px 8px
+    );
+  opacity: 0.48;
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.opensource-head {
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.opensource-title {
+  margin: 0;
+  max-width: 1050px;
+  color: #f1f1f1;
+  font-size: clamp(44px, 4.8vw, 78px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  font-weight: 560;
+}
+
+.opensource-title span {
+  color: #d0ab66;
+}
+
+.opensource-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.opensource-card {
+  min-height: 520px;
+  padding: 52px 42px 44px;
+  border-right: 1px solid rgba(208, 171, 102, 0.12);
+  background: rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+}
+
+.opensource-card:first-child {
+  border-left: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.opensource-visual {
+  position: relative;
+  height: 250px;
+  margin-bottom: 44px;
+  display: grid;
+  place-items: center;
+}
+
+.opensource-visual::before {
+  content: "";
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.035) 52%, transparent 74%);
+  filter: blur(9px);
+}
+
+.opensource-visual::after {
+  content: "";
+  position: absolute;
+  bottom: 26px;
+  width: 178px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  opacity: 0.7;
+}
+
+.opensource-icon {
+  position: relative;
+  z-index: 2;
+  width: 158px;
+  height: 158px;
+  color: rgba(255, 255, 255, 0.86);
+  filter:
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.16))
+    drop-shadow(0 0 32px rgba(255, 255, 255, 0.08));
+}
+
+.opensource-card h3 {
+  margin: 0;
+  color: rgba(244, 244, 244, 0.94);
+  font-size: 23px;
+  line-height: 1.28;
+  font-weight: 560;
+  letter-spacing: -0.035em;
+}
+
+.opensource-card h3 strong {
+  color: #ffffff;
+  font-weight: 820;
+}
+
+.opensource-card h3 span {
+  color: #d0ab66;
+}
+
+@media (max-width: 1180px) {
+  .opensource-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .opensource-card {
+    min-height: 460px;
+  }
+}
+
+@media (max-width: 760px) {
+  .opensource-top-line {
+    height: 38px;
+  }
+
+  .opensource-head {
+    min-height: auto;
+    padding: 48px 0;
+  }
+
+  .opensource-title {
+    font-size: clamp(36px, 10vw, 56px);
+    line-height: 1.02;
+  }
+
+  .opensource-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .opensource-card {
+    min-height: auto;
+    padding: 36px 24px 34px;
+    border-left: 1px solid rgba(208, 171, 102, 0.12);
+    border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  }
+
+  .opensource-visual {
+    height: 190px;
+    margin-bottom: 28px;
+  }
+
+  .opensource-icon {
+    width: 124px;
+    height: 124px;
+  }
+
+  .opensource-card h3 {
+    font-size: 21px;
+  }
+}
   </style>
 </head>
 
@@ -2204,7 +2394,216 @@
     <div class="compare-bottom-line" aria-hidden="true"></div>
   </div>
 </section>
+<section class="opensource-section">
+  <div class="opensource-top-line" aria-hidden="true"></div>
 
+  <div class="container opensource-shell">
+    <div class="opensource-head">
+      <h2 class="opensource-title">
+        Open-Source &amp; Privacy-First
+      </h2>
+    </div>
+
+    <div class="opensource-grid">
+      <article class="opensource-card">
+        <div class="opensource-visual">
+          <svg class="opensource-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <path
+              d="M24 35H54L61 43H96C101 43 104 46 104 51V88C104 94 100 98 94 98H26C20 98 16 94 16 88V45C16 39 20 35 24 35Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M48 62L38 72L48 82"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M72 62L82 72L72 82"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M64 59L56 85"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              opacity="0.75"
+            />
+          </svg>
+        </div>
+
+        <h3>
+          <strong>Open codebase</strong> with transparent updates
+        </h3>
+      </article>
+
+      <article class="opensource-card">
+        <div class="opensource-visual">
+          <svg class="opensource-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <rect
+              x="36"
+              y="36"
+              width="48"
+              height="54"
+              rx="10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+            />
+            <path
+              d="M47 52H73M47 64H68M47 76H62"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              opacity="0.78"
+            />
+            <rect
+              x="76"
+              y="58"
+              width="24"
+              height="26"
+              rx="6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+            <path
+              d="M82 58V52C82 48 85 45 88 45C92 45 94 48 94 52V58"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+            />
+            <path
+              d="M24 72L36 66"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3.5"
+              stroke-linecap="round"
+              opacity="0.55"
+            />
+          </svg>
+        </div>
+
+        <h3>
+          <strong>Messages stay protected</strong> through Telegram infrastructure
+        </h3>
+      </article>
+
+      <article class="opensource-card">
+        <div class="opensource-visual">
+          <svg class="opensource-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <path
+              d="M60 24L90 38V58C90 78 77 91 60 98C43 91 30 78 30 58V38L60 24Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M60 54V72"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+            <circle
+              cx="60"
+              cy="48"
+              r="5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+            />
+            <path
+              d="M26 40H18M26 54H18M26 68H18"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              opacity="0.45"
+            />
+            <circle
+              cx="92"
+              cy="28"
+              r="9"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              opacity="0.55"
+            />
+          </svg>
+        </div>
+
+        <h3>
+          <strong>No unnecessary analytics</strong> — less noise, more control
+        </h3>
+      </article>
+
+      <article class="opensource-card">
+        <div class="opensource-visual">
+          <svg class="opensource-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <rect
+              x="41"
+              y="42"
+              width="38"
+              height="42"
+              rx="10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+            />
+            <path
+              d="M49 42V34C49 26 54 20 61 20C68 20 73 26 73 34V42"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M60 57V69"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M24 66L41 60M96 66L79 60"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              opacity="0.6"
+            />
+            <path
+              d="M28 86H92"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              opacity="0.25"
+            />
+          </svg>
+        </div>
+
+        <h3>
+          <strong>Advanced privacy modes</strong> hide chats and sensitive actions
+        </h3>
+      </article>
+    </div>
+  </div>
+</section>
 <footer class="container footer">
   <p>© 2026 SilentGram. Все права защищены.</p>
   <p>Премиальный статический landing page для GitHub Pages и Cloudflare Pages.</p>
