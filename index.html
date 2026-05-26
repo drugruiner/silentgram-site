@@ -94,7 +94,7 @@
   .logo {
     display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
   color: #f4efe7;
   font-size: 25px;
   font-weight: 800;
@@ -105,11 +105,12 @@
   }
 
  .logo-icon {
-  width: 34px;
-  height: 34px;
+ width: 25px;
+  height: 25px;
   display: block;
   color: #ffffff;
-  flex: 0 0 auto;
+  flex: 0 0 25px;
+  stroke: currentColor;
 }
 
   .nav {
@@ -636,13 +637,21 @@
 
    <header class="container header">
   <a class="logo" href="#hero">
-    <svg class="logo-icon" viewBox="0 0 64 64" aria-hidden="true">
-    <path d="M8 34C8 27 11 22 18 19L29 14C34 12 36 15 33 19L24 29C22 31 22 33 24 35L40 49C45 53 51 51 53 45L57 26C59 15 52 10 42 14L19 24C14 26 12 29 12 32C12 35 14 38 18 40L29 46"
+    <svg class="logo-icon" viewBox="0 0 32 32" aria-hidden="true">
+    <path
+      d="M5.2 16.7L25.8 6.6C27.4 5.8 29 7.4 28.2 9L18.1 29.6C17.3 31.2 15 30.9 14.7 29.1L13.2 20.1L5.8 18.4C4.1 18 3.7 17.4 5.2 16.7Z"
       fill="none"
       stroke="currentColor"
-      stroke-width="4.5"
+      stroke-width="2.8"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M13.5 19.7L20.2 13"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2.8"
       stroke-linecap="round"
-      stroke-linejoin="round"/>
+    />
   </svg>
   <span>SilentGram</span>
   </a>
