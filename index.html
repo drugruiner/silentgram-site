@@ -2981,7 +2981,25 @@
 
  
 
- 
+ @media (max-width: 760px) {
+  .header-inner {
+    width: 100% !important;
+    padding: 0 20px !important;
+    margin: 0 !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+  }
+
+  .site-header .logo {
+    margin: 0 !important;
+    justify-content: flex-start !important;
+  }
+
+  .mobile-menu-button {
+    margin-left: auto !important;
+    display: inline-flex !important;
+  }
+}
   </style>
 </head>
 
@@ -3014,12 +3032,12 @@
   <a href="#tools">Функции</a>
   <a href="#advanced">Дополнительно</a>
   <a href="#faq">FAQ</a>
-        <button class="mobile-menu-button" type="button" aria-label="Открыть меню">
+</nav>
+      <button class="mobile-menu-button" type="button" aria-label="Открыть меню">
   <span></span>
   <span></span>
   <span></span>
 </button>
-</nav>
     </div>
   </header>
   <div class="mobile-menu" aria-hidden="true">
@@ -4119,64 +4137,64 @@
 
   window.addEventListener("scroll", updateScrollRails, { passive: true });
   window.addEventListener("resize", updateScrollRails);
+
   const faqItems = document.querySelectorAll(".faq-item");
 
-faqItems.forEach((item) => {
-  const button = item.querySelector(".faq-question");
+  faqItems.forEach((item) => {
+    const button = item.querySelector(".faq-question");
 
-  button.addEventListener("click", () => {
-    faqItems.forEach((otherItem) => {
-      if (otherItem !== item) {
-        otherItem.classList.remove("is-open");
-      }
+    if (!button) return;
+
+    button.addEventListener("click", () => {
+      faqItems.forEach((otherItem) => {
+        if (otherItem !== item) {
+          otherItem.classList.remove("is-open");
+        }
+      });
+
+      item.classList.toggle("is-open");
     });
-
-    item.classList.toggle("is-open");
   });
-});
- 
 
-
-
-}
   const mobileMenu = document.querySelector(".mobile-menu");
-const mobileMenuButton = document.querySelector(".mobile-menu-button");
-const mobileMenuClose = document.querySelector(".mobile-menu-close");
-const mobileMenuLinks = document.querySelectorAll(".mobile-menu-list a");
+  const mobileMenuButton = document.querySelector(".mobile-menu-button");
+  const mobileMenuClose = document.querySelector(".mobile-menu-close");
+  const mobileMenuLinks = document.querySelectorAll(".mobile-menu-list a");
 
-function openMobileMenu() {
-  if (!mobileMenu) return;
-  mobileMenu.classList.add("is-open");
-  document.body.classList.add("menu-open");
-  mobileMenu.setAttribute("aria-hidden", "false");
-}
+  function openMobileMenu() {
+    if (!mobileMenu) return;
 
-function closeMobileMenu() {
-  if (!mobileMenu) return;
-  mobileMenu.classList.remove("is-open");
-  document.body.classList.remove("menu-open");
-  mobileMenu.setAttribute("aria-hidden", "true");
-}
-
-if (mobileMenuButton) {
-  mobileMenuButton.addEventListener("click", openMobileMenu);
-}
-
-if (mobileMenuClose) {
-  mobileMenuClose.addEventListener("click", closeMobileMenu);
-}
-
-mobileMenuLinks.forEach((link) => {
-  link.addEventListener("click", closeMobileMenu);
-});
-
-window.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
-    closeMobileMenu();
+    mobileMenu.classList.add("is-open");
+    document.body.classList.add("menu-open");
+    mobileMenu.setAttribute("aria-hidden", "false");
   }
-});
+
+  function closeMobileMenu() {
+    if (!mobileMenu) return;
+
+    mobileMenu.classList.remove("is-open");
+    document.body.classList.remove("menu-open");
+    mobileMenu.setAttribute("aria-hidden", "true");
+  }
+
+  if (mobileMenuButton) {
+    mobileMenuButton.addEventListener("click", openMobileMenu);
+  }
+
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener("click", closeMobileMenu);
+  }
+
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileMenu();
+    }
+  });
 </script>
 </body>
 </html>
-</body>
-</html>
+
