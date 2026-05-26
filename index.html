@@ -1855,20 +1855,7 @@
     font-size: 21px;
   }
 }
-    /* =========================
-   Advanced Telegram tools
-   ========================= */
-
-.advanced-tools-section {
-  position: relative;
-  padding: 0;
-  border-top: 1px solid rgba(208, 171, 102, 0.12);
-  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
-  background:
-    radial-gradient(circle at 14% 10%, rgba(208, 171, 102, 0.09), transparent 24%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.04));
-  overflow: hidden;
-}
+    
 
 .advanced-tools-section::before {
   content: "";
@@ -2161,13 +2148,7 @@
     grid-template-columns: 1fr 150px;
   }
 }
-    /* ===== FIX advanced tools row status alignment ===== */
-
-.advanced-tool-card {
-  min-height: auto !important;
-  display: grid !important;
-  grid-template-rows: 24px 1fr !important;
-}
+    
 
 .advanced-tool-body {
   min-height: 360px !important;
@@ -2205,35 +2186,7 @@
     min-height: auto !important;
   }
 }
-    /* ===== FINAL FIX advanced tools compact rows ===== */
-
-.advanced-tools-grid {
-  align-items: start !important;
-}
-
-.advanced-tool-card {
-  height: auto !important;
-  min-height: 0 !important;
-  display: block !important;
-}
-
-.advanced-tool-body {
-  min-height: 0 !important;
-  height: auto !important;
-  padding: 18px 22px 34px !important;
-}
-
-.advanced-tool-visual {
-  height: 150px !important;
-  margin-bottom: 22px !important;
-}
-
-.adv-phone {
-  width: 88px !important;
-  height: 150px !important;
-  border-radius: 22px !important;
-}
-
+    
 .adv-phone-screen {
   inset: 26px 9px 9px !important;
 }
@@ -2263,6 +2216,321 @@
 
   .advanced-tool-body {
     padding: 18px 18px 28px !important;
+  }
+}
+    /* =========================
+   Advanced Telegram tools — clean version
+   ========================= */
+
+.advanced-tools-section {
+  position: relative;
+  padding: 0;
+  border-top: 1px solid rgba(208, 171, 102, 0.12);
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  background:
+    radial-gradient(circle at 14% 10%, rgba(208, 171, 102, 0.09), transparent 24%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.04));
+  overflow: hidden;
+}
+
+.advanced-tools-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(208, 171, 102, 0.72) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, transparent, black 10%, black 90%, transparent);
+}
+
+.advanced-tools-topline {
+  height: 48px;
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  background:
+    repeating-linear-gradient(
+      -72deg,
+      rgba(255, 255, 255, 0.11) 0 1px,
+      transparent 1px 8px
+    );
+  opacity: 0.45;
+}
+
+.advanced-tools-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.advanced-tools-head {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.advanced-tools-title {
+  margin: 0;
+  max-width: 980px;
+  color: #f3f3f3;
+  font-size: clamp(42px, 4.6vw, 74px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  font-weight: 560;
+}
+
+.advanced-tools-title span {
+  color: #d0ab66;
+}
+
+.advanced-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-left: 1px solid rgba(208, 171, 102, 0.12);
+  border-top: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.advanced-tool-card {
+  position: relative;
+  min-height: 365px;
+  padding: 42px 22px 30px;
+  border-right: 1px solid rgba(208, 171, 102, 0.12);
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  background: rgba(0, 0, 0, 0.14);
+  overflow: hidden;
+}
+
+.advanced-tool-status {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
+.advanced-tool-status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #29df72;
+  box-shadow: 0 0 8px rgba(41, 223, 114, 0.5);
+}
+
+.advanced-tool-status.beta::before {
+  background: #d0ab66;
+  box-shadow: 0 0 8px rgba(208, 171, 102, 0.5);
+}
+
+.advanced-tool-body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.advanced-tool-visual {
+  height: 150px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adv-phone {
+  position: relative;
+  width: 88px;
+  height: 150px;
+  border-radius: 22px;
+  border: 1px solid rgba(208, 171, 102, 0.20);
+  background: linear-gradient(180deg, #171717, #060606);
+  box-shadow:
+    0 0 24px rgba(208, 171, 102, 0.12),
+    0 18px 50px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 5px #0a0a0a;
+  overflow: hidden;
+}
+
+.adv-phone::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  width: 36px;
+  height: 12px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #050505;
+}
+
+.adv-phone-screen {
+  position: absolute;
+  inset: 26px 9px 9px;
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0)),
+    #0d0d0d;
+  overflow: hidden;
+}
+
+.adv-phone-line {
+  height: 6px;
+  margin: 9px 10px 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.adv-phone-line.short {
+  width: 48%;
+}
+
+.adv-phone-line.mid {
+  width: 64%;
+}
+
+.adv-phone-line.long {
+  width: 76%;
+}
+
+.adv-phone-card {
+  height: 22px;
+  margin: 12px 10px 0;
+  border-radius: 7px;
+  background: rgba(208, 171, 102, 0.12);
+  border: 1px solid rgba(208, 171, 102, 0.10);
+}
+
+.adv-phone-badge {
+  width: 56px;
+  height: 16px;
+  margin: 12px 10px 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.adv-phone-list {
+  margin: 10px 10px 0;
+  display: grid;
+  gap: 7px;
+}
+
+.adv-phone-list div {
+  height: 14px;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.advanced-tool-text {
+  margin-top: auto;
+}
+
+.advanced-tool-text h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1.18;
+  letter-spacing: -0.03em;
+  font-weight: 760;
+}
+
+.advanced-tool-text h3 span {
+  color: #d0ab66;
+}
+
+.advanced-tool-text p {
+  margin: 10px 0 0;
+  color: rgba(233, 229, 221, 0.84);
+  font-size: 15px;
+  line-height: 1.42;
+}
+
+.advanced-tools-bottom {
+  display: grid;
+  grid-template-columns: 1fr 210px;
+  border-left: 1px solid rgba(208, 171, 102, 0.12);
+  border-right: 1px solid rgba(208, 171, 102, 0.12);
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.advanced-tools-bottom-fill {
+  min-height: 34px;
+  border-right: 1px solid rgba(208, 171, 102, 0.12);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.advanced-tools-bottom-link {
+  min-height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+@media (max-width: 1180px) {
+  .advanced-tools-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .advanced-tool-card {
+    min-height: 350px;
+  }
+}
+
+@media (max-width: 760px) {
+  .advanced-tools-topline {
+    height: 38px;
+  }
+
+  .advanced-tools-head {
+    min-height: auto;
+    padding: 44px 0;
+  }
+
+  .advanced-tools-title {
+    font-size: clamp(36px, 10vw, 56px);
+    line-height: 1.02;
+  }
+
+  .advanced-tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .advanced-tool-card {
+    min-height: auto;
+    padding: 40px 18px 28px;
+  }
+
+  .advanced-tool-visual {
+    height: 145px;
+    margin-bottom: 22px;
+  }
+
+  .adv-phone {
+    width: 84px;
+    height: 144px;
+  }
+
+  .advanced-tool-text {
+    margin-top: 0;
+  }
+
+  .advanced-tool-text h3 {
+    font-size: 20px;
+  }
+
+  .advanced-tool-text p {
+    font-size: 16px;
+  }
+
+  .advanced-tools-bottom {
+    grid-template-columns: 1fr 150px;
   }
 }
   </style>
