@@ -1482,6 +1482,189 @@
     font-size: 16px;
   }
 }
+    /* ===== FIX compare block layout ===== */
+
+.compare-section {
+  width: 100%;
+  overflow: hidden !important;
+}
+
+.compare-shell {
+  width: 100%;
+  max-width: 1520px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* верх блока */
+.compare-hero {
+  min-height: 260px !important;
+  padding: 58px 0 48px !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px) !important;
+  align-items: center !important;
+  gap: 40px !important;
+  overflow: hidden !important;
+}
+
+.compare-title {
+  display: block !important;
+  margin: 0 !important;
+  max-width: 820px !important;
+  font-size: clamp(42px, 4.5vw, 72px) !important;
+  line-height: 1 !important;
+  letter-spacing: -0.055em !important;
+  color: #f2f2f2 !important;
+  text-align: left !important;
+  transform: none !important;
+}
+
+/* правая иконка vs */
+.compare-emblem {
+  position: relative !important;
+  width: 100% !important;
+  min-height: 190px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  overflow: hidden !important;
+  transform: none !important;
+}
+
+.compare-emblem-inner {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 18px !important;
+  transform: none !important;
+}
+
+.compare-brand-mark,
+.compare-telegram-mark {
+  width: 118px !important;
+  height: 118px !important;
+  flex: 0 0 118px !important;
+}
+
+.compare-brand-mark svg,
+.compare-telegram-mark svg {
+  width: 66px !important;
+  height: 66px !important;
+}
+
+.compare-vs {
+  position: static !important;
+  display: block !important;
+  flex: 0 0 auto !important;
+  font-size: 34px !important;
+  transform: none !important;
+}
+
+/* сетка карточек */
+.compare-grid {
+  width: 100% !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  overflow: hidden !important;
+}
+
+.compare-card {
+  min-width: 0 !important;
+  min-height: 430px !important;
+  padding: 44px 28px 36px !important;
+  overflow: hidden !important;
+}
+
+.compare-visual {
+  height: 190px !important;
+  margin-bottom: 28px !important;
+}
+
+.compare-icon {
+  width: 132px !important;
+  height: 132px !important;
+}
+
+.compare-card h3 {
+  font-size: 19px !important;
+  line-height: 1.22 !important;
+}
+
+.compare-card ul {
+  font-size: 16px !important;
+  line-height: 1.55 !important;
+}
+
+/* планшет */
+@media (max-width: 1180px) {
+  .compare-hero {
+    grid-template-columns: 1fr !important;
+    padding: 52px 0 42px !important;
+  }
+
+  .compare-emblem {
+    justify-content: flex-start !important;
+    min-height: 150px !important;
+  }
+
+  .compare-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+/* телефон */
+@media (max-width: 760px) {
+  .compare-hero {
+    padding: 42px 0 34px !important;
+    gap: 22px !important;
+  }
+
+  .compare-title {
+    font-size: clamp(36px, 10vw, 54px) !important;
+  }
+
+  .compare-emblem {
+    justify-content: flex-start !important;
+    min-height: 120px !important;
+  }
+
+  .compare-brand-mark,
+  .compare-telegram-mark {
+    width: 82px !important;
+    height: 82px !important;
+    flex-basis: 82px !important;
+  }
+
+  .compare-brand-mark svg,
+  .compare-telegram-mark svg {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  .compare-vs {
+    font-size: 24px !important;
+  }
+
+  .compare-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .compare-card {
+    min-height: auto !important;
+    padding: 34px 22px 32px !important;
+  }
+
+  .compare-visual {
+    height: 160px !important;
+    margin-bottom: 22px !important;
+  }
+
+  .compare-icon {
+    width: 112px !important;
+    height: 112px !important;
+  }
+}
   </style>
 </head>
 
