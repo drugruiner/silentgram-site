@@ -581,6 +581,351 @@
         flex-direction: column;
       }
     }
+    .sg-hero {
+  width: min(100% - 48px, 1480px);
+  margin: 0 auto;
+  min-height: calc(100vh - 76px);
+  border-top: 1px solid rgba(208, 171, 102, 0.1);
+}
+
+.sg-hero-grid {
+  display: grid;
+  grid-template-columns: 1.04fr 0.96fr;
+  min-height: calc(100vh - 150px);
+}
+
+.sg-hero-left {
+  padding: 56px 56px 52px 0;
+  border-right: 1px solid rgba(208, 171, 102, 0.14);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sg-badge {
+  width: fit-content;
+  padding: 13px 16px;
+  background: rgba(208, 171, 102, 0.09);
+  border: 1px solid rgba(208, 171, 102, 0.17);
+  color: #d0ab66;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.sg-title {
+  margin: 34px 0 0;
+  max-width: 900px;
+  color: #fff;
+  font-size: clamp(52px, 6.8vw, 86px);
+  line-height: 0.98;
+  letter-spacing: -0.062em;
+  font-weight: 500;
+}
+
+.sg-title span {
+  color: #d0ab66;
+}
+
+.sg-description {
+  margin: 36px 0 0;
+  max-width: 760px;
+  color: rgba(245, 239, 231, 0.86);
+  font-size: 21px;
+  line-height: 1.65;
+}
+
+.sg-install {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 46px;
+  width: fit-content;
+  min-width: 292px;
+  height: 64px;
+  padding: 0 30px;
+  border: 1px solid rgba(208, 171, 102, 0.28);
+  background: #11100d;
+  color: #f7f1e7;
+  overflow: hidden;
+  font-size: 16px;
+  font-weight: 700;
+  transition: transform 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.sg-install::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 0%;
+  background: linear-gradient(90deg, #a97834, #d0ab66 58%, #ebd092);
+  z-index: -1;
+  transition: width 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sg-install:hover {
+  transform: translateY(-2px);
+  color: #17110a;
+  border-color: rgba(208, 171, 102, 0.5);
+}
+
+.sg-install:hover::before {
+  width: 100%;
+}
+
+.sg-hero-right {
+  position: relative;
+  min-height: 640px;
+  overflow: hidden;
+}
+
+.sg-hero-right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 680px;
+  height: 680px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(208, 171, 102, 0.18), rgba(208, 171, 102, 0.04) 48%, transparent 72%);
+  filter: blur(18px);
+}
+
+.sg-phone {
+  position: absolute;
+  width: 330px;
+  height: 610px;
+  border-radius: 48px;
+  border: 1px solid rgba(208, 171, 102, 0.22);
+  background: linear-gradient(180deg, #171717, #050505);
+  box-shadow: 0 34px 95px rgba(0, 0, 0, 0.66), inset 0 0 0 7px #0a0a0a;
+  overflow: hidden;
+}
+
+.sg-phone-main {
+  left: 8%;
+  top: 8%;
+  transform: rotate(-2deg);
+  z-index: 2;
+}
+
+.sg-phone-second {
+  right: 3%;
+  top: 15%;
+  transform: rotate(5deg);
+  z-index: 1;
+}
+
+.sg-island {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  width: 94px;
+  height: 27px;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: #050505;
+}
+
+.sg-phone-ui {
+  padding: 58px 22px 20px;
+}
+
+.sg-phone-top {
+  display: flex;
+  justify-content: space-between;
+  color: #eee;
+  font-size: 13px;
+}
+
+.sg-search {
+  height: 36px;
+  margin: 22px 0 16px;
+  border-radius: 10px;
+  background: #090909;
+  color: #777;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-size: 13px;
+}
+
+.sg-chat {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+}
+
+.sg-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #d0ab66, #40301b);
+  flex: 0 0 auto;
+}
+
+.sg-chat b {
+  display: block;
+  color: #e8e3da;
+  font-size: 14px;
+}
+
+.sg-chat span {
+  display: block;
+  color: #858585;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.sg-panel-ui {
+  padding-top: 78px;
+}
+
+.sg-panel-label,
+.sg-panel-text {
+  color: #a59a89;
+  font-size: 13px;
+}
+
+.sg-panel-ui h3 {
+  margin: 20px 0 8px;
+  color: #e7e2d8;
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.sg-actions {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 24px 0;
+}
+
+.sg-actions div {
+  height: 38px;
+  border: 1px solid rgba(208, 171, 102, 0.13);
+  border-radius: 14px;
+  background: #111;
+  color: #d8c19a;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+}
+
+.sg-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+  color: #d8d2c8;
+}
+
+.sg-info-row span {
+  color: #a59a89;
+}
+
+.sg-hero-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(208, 171, 102, 0.13);
+  border-bottom: 1px solid rgba(208, 171, 102, 0.13);
+}
+
+.sg-hero-nav a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+  padding: 0 24px;
+  border-right: 1px solid rgba(208, 171, 102, 0.13);
+  color: #fff;
+  font-weight: 700;
+}
+
+.sg-hero-nav a:last-child {
+  border-right: 0;
+}
+
+.sg-hero-nav small {
+  display: block;
+  margin-top: 4px;
+  color: #d0ab66;
+  font-size: 13px;
+}
+
+.sg-hero-nav b {
+  color: #8d7a5e;
+  font-size: 22px;
+}
+
+@media (max-width: 1050px) {
+  .sg-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sg-hero-left {
+    border-right: 0;
+    padding-right: 0;
+  }
+
+  .sg-hero-right {
+    min-height: 600px;
+  }
+
+  .sg-phone-main {
+    left: 13%;
+  }
+
+  .sg-phone-second {
+    right: 13%;
+  }
+}
+
+@media (max-width: 720px) {
+  .sg-hero {
+    width: min(100% - 32px, 1480px);
+  }
+
+  .sg-title {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .sg-description {
+    font-size: 18px;
+  }
+
+  .sg-install {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .sg-hero-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .sg-hero-nav a {
+    border-right: 0;
+    border-bottom: 1px solid rgba(208, 171, 102, 0.13);
+  }
+
+  .sg-hero-right {
+    min-height: 480px;
+    transform: scale(0.82);
+    transform-origin: center top;
+  }
+
+  .sg-phone-main {
+    left: 0;
+  }
+
+  .sg-phone-second {
+    right: 0;
+  }
+}
   </style>
 </head>
 
