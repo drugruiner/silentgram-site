@@ -1170,6 +1170,33 @@
     font-size: 16px;
   }
 }
+    /* FIX: убираем бейдж "Возможности" только в блоке с иконками */
+.feature-grid-section .feature-grid-head > .eyebrow {
+  display: none !important;
+}
+
+/* подтягиваем заголовок вверх после удаления бейджа */
+.feature-grid-section {
+  padding-top: 46px !important;
+}
+
+.feature-grid-head {
+  padding-bottom: 38px !important;
+}
+
+.feature-grid-title {
+  margin-top: 0 !important;
+}
+
+@media (max-width: 760px) {
+  .feature-grid-section {
+    padding-top: 38px !important;
+  }
+
+  .feature-grid-head {
+    padding-bottom: 28px !important;
+  }
+}
   </style>
 </head>
 
@@ -1397,7 +1424,7 @@
     <section class="feature-grid-section" id="tools">
   <div class="container feature-grid-shell">
     <div class="feature-grid-head">
-  <div class="eyebrow">Возможности</div>
+ 
 
   <h2 class="feature-grid-title">
     Возможности SilentGram,
