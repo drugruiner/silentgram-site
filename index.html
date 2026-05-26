@@ -3033,6 +3033,25 @@
     border-radius: 32px;
   }
 }
+    /* FIX: плотнее заполняем скрином hero-телефоны */
+.phone-screen-image {
+  inset: 0 !important;
+  border-radius: 38px !important;
+  background: #050505 !important;
+}
+
+.phone-screen-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  transform: scale(1.14) translateY(-2.5%) !important;
+  transform-origin: top center !important;
+}
+
+.phone.has-screen .island {
+  display: none !important;
+}
   </style>
 </head>
 
