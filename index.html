@@ -3000,6 +3000,39 @@
     display: inline-flex !important;
   }
 }
+    /* Screenshot inside hero phones */
+
+.phone-screen-image {
+  position: absolute;
+  inset: 18px 10px 10px;
+  border-radius: 34px;
+  overflow: hidden;
+  background: #050505;
+  z-index: 1;
+}
+
+.phone-screen-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.phone.has-screen .phone-inner {
+  display: none;
+}
+
+.phone.has-screen .island {
+  z-index: 3;
+}
+
+@media (max-width: 760px) {
+  .phone-screen-image {
+    inset: 16px 9px 9px;
+    border-radius: 32px;
+  }
+}
   </style>
 </head>
 
@@ -3149,15 +3182,13 @@
       </div>
 
       <div class="hero-visual" aria-hidden="true">
-        <div class="phone main">
-          <div class="island"></div>
+        <div class="phone main has-screen">
+  <div class="island"></div>
 
-          <div class="phone-inner">
-            <div class="phone-bar">
-              <span>9:41</span>
-              <span>Chats</span>
-              <span>•••</span>
-            </div>
+  <div class="phone-screen-image">
+    <img src="assets/screens/hero-screen.png" alt="SilentGram interface screenshot">
+  </div>
+</div>
 
             <div class="phone-title">Chats</div>
             <div class="search">Search for messages or users</div>
@@ -3204,15 +3235,13 @@
           </div>
         </div>
 
-        <div class="phone back">
-          <div class="island"></div>
+        <div class="phone back has-screen">
+  <div class="island"></div>
 
-          <div class="phone-inner focus-panel">
-            <div class="phone-bar">
-              <span>9:41</span>
-              <span>All Chats</span>
-              <span>⚙</span>
-            </div>
+  <div class="phone-screen-image">
+    <img src="assets/screens/hero-screen.png" alt="SilentGram interface screenshot">
+  </div>
+</div>
 
             <small>Workspace</small>
             <h3>Focus Mode</h3>
