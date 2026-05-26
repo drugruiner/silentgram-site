@@ -3,24 +3,815 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="SilentGram — премиальный Telegram-клиент с акцентом на приватность, скорость и спокойный интерфейс." />
-  <meta name="theme-color" content="#060606" />
+  <meta name="theme-color" content="#050505" />
   <title>SilentGram — премиальный Telegram-клиент</title>
+
   <style>
-    :root{color-scheme:dark;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#060606;color:#f4f1ea}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-width:320px;background:#060606;overflow-x:hidden}a{color:inherit;text-decoration:none}.page{position:relative;overflow:hidden}.bg{position:absolute;inset:0;z-index:-4;background:radial-gradient(circle at top,rgba(196,150,82,.22),transparent 35%),radial-gradient(circle at 78% 18%,rgba(145,111,59,.14),transparent 24%),linear-gradient(180deg,#060606,#090807 44%,#060606)}.noise{position:absolute;inset:0;z-index:-3;opacity:.08;background-image:radial-gradient(circle,rgba(201,157,85,.72) 1px,transparent 1.5px);background-size:22px 22px;mask-image:linear-gradient(180deg,transparent,black 15%,black 85%,transparent)}.line-l,.line-r{position:absolute;top:0;bottom:0;width:1px;background:linear-gradient(180deg,transparent,rgba(156,122,70,.58),transparent);z-index:-2}.line-l{left:32px}.line-r{right:32px}.glow-a{position:absolute;left:-180px;top:80px;width:520px;height:520px;border-radius:50%;background:rgba(159,119,63,.14);filter:blur(90px);z-index:-1}.glow-b{position:absolute;right:-180px;top:520px;width:420px;height:420px;border-radius:50%;background:rgba(109,81,42,.16);filter:blur(90px);z-index:-1}.wrap{width:min(100% - 48px,1280px);margin:0 auto}.header{display:flex;align-items:center;justify-content:space-between;padding:24px 0}.logo{display:flex;align-items:center;gap:12px;font-weight:760;color:#e8e2d9}.logo-icon{width:44px;height:44px;border-radius:18px;border:1px solid rgba(198,161,91,.18);background:#15120d;display:grid;place-items:center;color:#d8c19a;box-shadow:0 12px 44px rgba(183,146,82,.12)}.nav{display:flex;gap:32px;font-size:14px;color:#c8c0b5}.nav a{transition:.25s}.nav a:hover{color:#fff}.btn-small{border:1px solid rgba(198,161,91,.18);background:#17130e;color:#eadcc2;border-radius:999px;padding:10px 20px;font-weight:650}.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;padding:48px 0 104px}.badge{display:inline-flex;align-items:center;border:1px solid rgba(198,161,91,.25);background:rgba(198,161,91,.1);color:#d8c19a;border-radius:999px;padding:9px 16px;font-size:12px;text-transform:uppercase;letter-spacing:.28em;font-weight:760}.h1{margin:28px 0 0;max-width:900px;color:#d1d5db;font-size:clamp(48px,8vw,84px);line-height:.94;letter-spacing:-.067em;font-weight:780}.lead{margin:28px 0 0;max-width:700px;color:rgba(245,239,231,.88);font-size:20px;line-height:1.65}.actions{display:flex;flex-wrap:wrap;gap:16px;margin-top:40px}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:16px 28px;font-weight:780;transition:.25s}.btn-primary{background:#d0ab66;color:#1a140d}.btn-primary:hover{background:#dab978;transform:translateY(-2px)}.btn-secondary{border:1px solid rgba(198,161,91,.18);background:#12100d;color:#eee2cb}.chips{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:40px}.card{border:1px solid rgba(198,161,91,.12);background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.018));box-shadow:0 24px 80px rgba(0,0,0,.38);backdrop-filter:blur(18px);border-radius:32px}.chip{padding:16px;color:#ede3d3;font-weight:650}.mock{position:relative;margin:auto;max-width:470px;padding:16px;border-radius:44px;background:rgba(13,11,9,.9);border-color:rgba(198,161,91,.16)}.mock:before{content:"";position:absolute;inset:32px;border-radius:999px;background:rgba(181,139,76,.18);filter:blur(70px);z-index:-1}.phone{border-radius:34px;border:1px solid rgba(198,161,91,.14);background:#100d0a;padding:20px}.phone-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.meta{font-size:12px;text-transform:uppercase;letter-spacing:.25em;color:#8e8576}.phone-title{margin-top:6px;color:#d7dbe1;font-weight:760;font-size:18px}.active{border:1px solid rgba(198,161,91,.2);background:rgba(198,161,91,.1);color:#e8d3af;border-radius:999px;padding:6px 12px;font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(198,161,91,.1);background:#17130f;border-radius:18px;padding:14px 16px;margin-bottom:12px;color:#efe6d8}.row span:last-child{color:#9c8a70}.mini{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.mini .card{padding:16px;background:#14110d}.mini small{display:block;text-transform:uppercase;letter-spacing:.2em;color:#8d857a;font-size:10px}.mini b{display:block;margin-top:8px;color:#d7dbe1}.section{padding:88px 0}.h2{margin:24px 0 0;max-width:900px;color:#d1d5db;font-size:clamp(40px,6vw,64px);line-height:1;letter-spacing:-.046em;font-weight:780}.text{margin-top:20px;max-width:730px;color:rgba(245,239,231,.86);font-size:18px;line-height:1.65}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:48px}.tile{padding:28px;transition:.25s}.tile:hover{transform:translateY(-4px);border-color:rgba(198,161,91,.22);background:#12100d}.icon{width:52px;height:52px;border-radius:18px;border:1px solid rgba(198,161,91,.12);background:#16120e;color:#d3b06f;display:grid;place-items:center;margin-bottom:28px;font-size:20px}.tile h3{margin:0;color:#d0d4db;font-size:24px;letter-spacing:-.02em}.tile p,.faq p{color:rgba(244,237,227,.82);line-height:1.65}.compare-card{padding:32px}.compare-title{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:22px}.compare-title h3{margin:0;color:#d0d4db;font-size:26px}.rule{height:1px;flex:1;background:linear-gradient(90deg,transparent,rgba(198,161,91,.55),transparent)}.list{display:grid;gap:12px}.list div{border:1px solid rgba(198,161,91,.08);background:#120f0c;border-radius:18px;padding:14px 16px;color:rgba(244,237,227,.84);line-height:1.55}.status{border:1px solid rgba(198,161,91,.25);background:rgba(198,161,91,.12);color:#e8d3af;border-radius:999px;padding:5px 10px;font-size:10px;text-transform:uppercase;letter-spacing:.22em;font-weight:760}.feature-head{display:flex;justify-content:space-between;align-items:center}.faq{max-width:900px}.faq details{padding:24px;margin-top:16px}.faq summary{cursor:pointer;list-style:none;color:#d0d4db;font-weight:760;font-size:18px}.cta{padding:56px;text-align:center;border-radius:44px;background:linear-gradient(135deg,rgba(208,171,102,.18),rgba(67,50,28,.36),rgba(255,255,255,.03));border:1px solid rgba(198,161,91,.14);box-shadow:0 25px 90px rgba(0,0,0,.42)}.cta .h2{margin-left:auto;margin-right:auto}.cta .text{margin-left:auto;margin-right:auto}.footer{display:flex;justify-content:space-between;gap:24px;border-top:1px solid rgba(198,161,91,.1);padding:32px 0;color:#b9b0a3;font-size:14px}@media(max-width:900px){.nav{display:none}.hero{grid-template-columns:1fr}.chips,.grid3,.grid2{grid-template-columns:1fr}.cta{padding:32px}.line-l,.line-r{display:none}.mini{grid-template-columns:1fr}.wrap{width:min(100% - 32px,1280px)}}
+    :root {
+      color-scheme: dark;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #050505;
+      color: #f4f1ea;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: #050505;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .bg {
+      position: absolute;
+      inset: 0;
+      z-index: -5;
+      background:
+        radial-gradient(circle at 72% 8%, rgba(208, 171, 102, 0.18), transparent 32%),
+        linear-gradient(180deg, #050505, #080706 50%, #050505);
+    }
+
+    .dots {
+      position: absolute;
+      inset: 0;
+      z-index: -4;
+      opacity: 0.08;
+      background-image: radial-gradient(circle, rgba(208, 171, 102, 0.72) 1px, transparent 1.4px);
+      background-size: 22px 22px;
+    }
+
+    .v-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(156, 122, 70, 0.46), transparent);
+      z-index: -3;
+    }
+
+    .v-line.left {
+      left: 36px;
+    }
+
+    .v-line.mid {
+      left: 53%;
+    }
+
+    .v-line.right {
+      right: 36px;
+    }
+
+    .top-line {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 260px;
+      height: 2px;
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, #d0ab66, transparent);
+    }
+
+    .wrap {
+      width: min(100% - 48px, 1480px);
+      margin: 0 auto;
+    }
+
+    .header {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-weight: 760;
+      color: #e8e2d9;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 16px;
+      border: 1px solid rgba(208, 171, 102, 0.18);
+      background: #15120d;
+      color: #d8c19a;
+      display: grid;
+      place-items: center;
+    }
+
+    .nav {
+      display: flex;
+      gap: 30px;
+      font-size: 14px;
+      color: #c8c0b5;
+    }
+
+    .nav a {
+      transition: color 0.25s ease;
+    }
+
+    .nav a:hover {
+      color: #fff;
+    }
+
+    .header-button {
+      border: 1px solid rgba(208, 171, 102, 0.2);
+      background: #15120d;
+      color: #eadcc2;
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 650;
+      font-size: 14px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.02fr 0.98fr;
+      gap: 44px;
+      align-items: center;
+      min-height: calc(100vh - 76px);
+      padding: 30px 0 90px;
+    }
+
+    .badge {
+      display: inline-flex;
+      background: rgba(208, 171, 102, 0.08);
+      border: 1px solid rgba(208, 171, 102, 0.16);
+      color: #d0ab66;
+      padding: 13px 16px;
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    .title {
+      margin: 30px 0 0;
+      max-width: 940px;
+      color: #fff;
+      font-size: clamp(52px, 6.8vw, 88px);
+      line-height: 0.98;
+      letter-spacing: -0.062em;
+      font-weight: 500;
+    }
+
+    .title span {
+      color: #d0ab66;
+    }
+
+    .lead {
+      margin: 34px 0 0;
+      max-width: 760px;
+      color: rgba(245, 239, 231, 0.86);
+      font-size: 21px;
+      line-height: 1.65;
+    }
+
+    .install-button {
+      position: relative;
+      isolation: isolate;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 44px;
+      min-width: 292px;
+      height: 64px;
+      padding: 0 30px;
+      border: 1px solid rgba(208, 171, 102, 0.28);
+      background: #11100d;
+      color: #f7f1e7;
+      overflow: hidden;
+      font-size: 16px;
+      font-weight: 780;
+      transition:
+        transform 0.25s ease,
+        color 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .install-button::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 0;
+      background: linear-gradient(90deg, #a97834, #d0ab66 58%, #ebd092);
+      z-index: -1;
+      transition: width 0.48s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .install-button:hover {
+      transform: translateY(-2px);
+      color: #17110a;
+      border-color: rgba(208, 171, 102, 0.48);
+    }
+
+    .install-button:hover::before {
+      width: 100%;
+    }
+
+    .hero-links {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 78px;
+      border-top: 1px solid rgba(208, 171, 102, 0.13);
+      border-bottom: 1px solid rgba(208, 171, 102, 0.13);
+    }
+
+    .hero-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 64px;
+      padding: 0 22px;
+      border-right: 1px solid rgba(208, 171, 102, 0.13);
+      font-weight: 760;
+    }
+
+    .hero-links a:last-child {
+      border-right: 0;
+    }
+
+    .hero-links small {
+      display: block;
+      color: #d0ab66;
+      margin-top: 4px;
+      font-size: 13px;
+    }
+
+    .devices {
+      position: relative;
+      min-height: 630px;
+    }
+
+    .devices::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      margin: auto;
+      width: 650px;
+      height: 650px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(208, 171, 102, 0.18), rgba(208, 171, 102, 0.04) 48%, transparent 72%);
+      filter: blur(18px);
+    }
+
+    .phone {
+      position: absolute;
+      width: 330px;
+      height: 610px;
+      border-radius: 48px;
+      border: 1px solid rgba(208, 171, 102, 0.22);
+      background: linear-gradient(180deg, #171717, #050505);
+      box-shadow:
+        0 34px 95px rgba(0, 0, 0, 0.66),
+        inset 0 0 0 7px #0a0a0a;
+      overflow: hidden;
+    }
+
+    .phone.primary {
+      left: 4%;
+      top: 3%;
+      transform: rotate(-2deg);
+      z-index: 2;
+    }
+
+    .phone.secondary {
+      right: 2%;
+      top: 13%;
+      transform: rotate(5deg);
+      z-index: 1;
+    }
+
+    .island {
+      position: absolute;
+      top: 16px;
+      left: 50%;
+      width: 94px;
+      height: 27px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: #050505;
+    }
+
+    .phone-ui {
+      padding: 58px 22px 20px;
+    }
+
+    .phone-bar {
+      display: flex;
+      justify-content: space-between;
+      color: #eee;
+      font-size: 13px;
+    }
+
+    .phone-title {
+      text-align: center;
+      color: #e6e1d8;
+      font-weight: 760;
+      margin: 18px 0 12px;
+    }
+
+    .phone-search {
+      height: 36px;
+      border-radius: 10px;
+      background: #090909;
+      color: #777;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      font-size: 13px;
+      margin-bottom: 16px;
+    }
+
+    .chat {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      padding: 11px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+    }
+
+    .avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #d0ab66, #40301b);
+      flex: 0 0 auto;
+    }
+
+    .chat b {
+      display: block;
+      color: #e8e3da;
+      font-size: 14px;
+    }
+
+    .chat span {
+      display: block;
+      color: #858585;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    .panel {
+      padding-top: 78px;
+    }
+
+    .panel small {
+      color: #a59a89;
+    }
+
+    .panel-title {
+      margin: 20px 0 8px;
+      color: #e7e2d8;
+      font-size: 34px;
+      font-weight: 760;
+      letter-spacing: -0.04em;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin: 24px 0;
+    }
+
+    .quick-actions div {
+      height: 38px;
+      border: 1px solid rgba(208, 171, 102, 0.13);
+      border-radius: 14px;
+      background: #111;
+      color: #d8c19a;
+      display: grid;
+      place-items: center;
+      font-size: 12px;
+    }
+
+    .phone-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 17px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.055);
+      color: #d8d2c8;
+    }
+
+    .phone-item span {
+      color: #777;
+      font-size: 12px;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .h2 {
+      font-size: clamp(40px, 6vw, 64px);
+      line-height: 1;
+      letter-spacing: -0.046em;
+      color: #d1d5db;
+      margin: 22px 0 0;
+    }
+
+    .text {
+      color: rgba(245, 239, 231, 0.86);
+      font-size: 18px;
+      line-height: 1.65;
+      max-width: 730px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 44px;
+    }
+
+    .card {
+      border: 1px solid rgba(208, 171, 102, 0.12);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+      border-radius: 32px;
+      padding: 28px;
+    }
+
+    .card h3 {
+      color: #d0d4db;
+      font-size: 24px;
+      margin: 0 0 12px;
+    }
+
+    .card p {
+      color: rgba(244, 237, 227, 0.82);
+      line-height: 1.6;
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      border: 1px solid rgba(208, 171, 102, 0.12);
+      background: #16120e;
+      color: #d3b06f;
+      display: grid;
+      place-items: center;
+      margin-bottom: 26px;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 56px;
+      border: 1px solid rgba(208, 171, 102, 0.14);
+      border-radius: 44px;
+      background: linear-gradient(135deg, rgba(208, 171, 102, 0.18), rgba(67, 50, 28, 0.36), rgba(255, 255, 255, 0.03));
+      box-shadow: 0 25px 90px rgba(0, 0, 0, 0.42);
+    }
+
+    .cta .text {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid rgba(208, 171, 102, 0.1);
+      padding: 32px 0;
+      color: #b9b0a3;
+      font-size: 14px;
+    }
+
+    @media (max-width: 1050px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .devices {
+        min-height: 560px;
+      }
+
+      .phone.primary {
+        left: 12%;
+      }
+
+      .phone.secondary {
+        right: 12%;
+      }
+
+      .v-line.mid {
+        display: none;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .wrap {
+        width: min(100% - 32px, 1480px);
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .title {
+        font-size: clamp(42px, 12vw, 58px);
+      }
+
+      .lead {
+        font-size: 18px;
+      }
+
+      .install-button {
+        width: 100%;
+        min-width: 0;
+      }
+
+      .hero-links {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-links a {
+        border-right: 0;
+        border-bottom: 1px solid rgba(208, 171, 102, 0.13);
+      }
+
+      .devices {
+        min-height: 470px;
+        transform: scale(0.82);
+        transform-origin: center top;
+      }
+
+      .phone.primary {
+        left: 0;
+      }
+
+      .phone.secondary {
+        right: 0;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        padding: 32px;
+      }
+
+      .v-line {
+        display: none;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
+
 <body>
   <main class="page">
-    <div class="bg"></div><div class="noise"></div><div class="line-l"></div><div class="line-r"></div><div class="glow-a"></div><div class="glow-b"></div>
-    <header class="wrap header"><a class="logo" href="#hero"><span class="logo-icon">◆</span><span>SilentGram</span></a><nav class="nav"><a href="#advantages">Преимущества</a><a href="#compare">Сравнение</a><a href="#features">Функции</a><a href="#faq">FAQ</a></nav><a class="btn-small" href="#cta">Скачать</a></header>
-    <section id="hero" class="wrap hero"><div><span class="badge">Премиальный клиент для Telegram</span><h1 class="h1">Тихий, дорогой и собранный визуально опыт общения.</h1><p class="lead">SilentGram сохраняет знакомый Telegram-поток, но добавляет благородный интерфейс, порядок, приватность и премиальный чёрно-золотой визуальный стиль.</p><div class="actions"><a class="btn btn-primary" href="#cta">Открыть SilentGram →</a><a class="btn btn-secondary" href="#features">Посмотреть возможности</a></div><div class="chips"><div class="card chip">Приватность</div><div class="card chip">Премиальный интерфейс</div><div class="card chip">VPS ready</div></div></div><div class="mock card"><div class="phone"><div class="phone-head"><div><div class="meta">Интерфейс</div><div class="phone-title">SilentGram UI</div></div><span class="active">active</span></div><div class="row"><span>Тихий режим включён</span><span>›</span></div><div class="row"><span>Рабочие аккаунты под контролем</span><span>›</span></div><div class="row"><span>Скрытые диалоги защищены</span><span>›</span></div><div class="row"><span>Быстрые ответы готовы</span><span>›</span></div><div class="mini"><div class="card"><small>Статус</small><b>Приватность активна</b></div><div class="card"><small>Режим</small><b>Focus mode</b></div></div></div></div></section>
-    <section id="advantages" class="wrap section"><span class="badge">Почему SilentGram</span><h2 class="h2">Спокойнее. Дороже. Умнее.</h2><p class="text">Премиальные плитки, тёплые золотые акценты и выразительные серые заголовки делают сайт статуснее, чище и ближе к продуктовой презентации.</p><div class="grid3"><article class="card tile"><div class="icon">◈</div><h3>Приватность по умолчанию</h3><p>Больше контроля над сессиями, уведомлениями и личным пространством — без лишнего шума.</p></article><article class="card tile"><div class="icon">↯</div><h3>Быстрый рабочий поток</h3><p>Чистая навигация по чатам и сценарии для работы без перегруза.</p></article><article class="card tile"><div class="icon">✦</div><h3>Умный слой внутри</h3><p>Сводки, быстрые ответы и продуктивные действия там, где они полезны.</p></article></div></section>
-    <section id="compare" class="wrap section"><span class="badge">SilentGram vs Telegram</span><h2 class="h2">Привычная база — но в более статусной оболочке.</h2><div class="grid2"><article class="card compare-card"><div class="compare-title"><h3>Обычный Telegram-клиент</h3><span class="rule"></span></div><div class="list"><div>Базовый сценарий общения</div><div>Меньше фокуса на приватности</div><div>Не хватает продвинутого рабочего слоя</div></div></article><article class="card compare-card"><div class="compare-title"><h3>SilentGram</h3><span class="rule"></span></div><div class="list"><div>Премиальный спокойный интерфейс</div><div>Усиленный контроль, приватность и порядок</div><div>Функции для тех, кто хочет больше скорости и удобства</div></div></article></div></section>
-    <section id="features" class="wrap section"><span class="badge">Возможности</span><h2 class="h2">Красивые плитки и функции, которые хочется показывать.</h2><div class="grid3"><article class="card tile"><div class="feature-head"><div class="icon">☾</div><span class="status">доступно</span></div><h3>Тихий режим</h3><p>Аккуратная функция в премиальной золотой плитке без холодных синих оттенков.</p></article><article class="card tile"><div class="feature-head"><div class="icon">◇</div><span class="status">доступно</span></div><h3>Скрытые чаты</h3><p>Приватные сценарии в более дорогой и спокойной визуальной оболочке.</p></article><article class="card tile"><div class="feature-head"><div class="icon">✦</div><span class="status">бета</span></div><h3>AI-помощник</h3><p>Сводки, быстрые ответы и полезные сценарии для переписок.</p></article><article class="card tile"><div class="feature-head"><div class="icon">▣</div><span class="status">доступно</span></div><h3>Несколько аккаунтов</h3><p>Рабочие и личные аккаунты в одном аккуратном пространстве.</p></article><article class="card tile"><div class="feature-head"><div class="icon">◎</div><span class="status">скоро</span></div><h3>Умный перевод</h3><p>Лёгкий перевод сообщений без лишних действий.</p></article><article class="card tile"><div class="feature-head"><div class="icon">⬡</div><span class="status">доступно</span></div><h3>Контроль приватности</h3><p>Гибкие ограничения, спокойные настройки и меньше визуального хаоса.</p></article></div></section>
-    <section id="faq" class="wrap section faq"><span class="badge">FAQ</span><h2 class="h2">Частые вопросы</h2><details class="card"><summary>SilentGram — это отдельный мессенджер?</summary><p>Нет, это концепт клиента для Telegram с более премиальным интерфейсом, приватными сценариями и дополнительными удобствами.</p></details><details class="card"><summary>Можно ли загрузить сайт на VPS?</summary><p>Да. Это статическая версия, которую можно раздавать через GitHub Pages, Nginx или Apache.</p></details><details class="card"><summary>Можно ли менять тексты под клиента?</summary><p>Да. Структура простая, поэтому дальше можно подставить реальные преимущества, скриншоты и оффер.</p></details></section>
-    <section id="cta" class="wrap section"><div class="cta"><span class="badge">Готово к следующему этапу</span><h2 class="h2">Теперь сайт выглядит теплее, дороже и статуснее.</h2><p class="text">Дальше можно подставлять реальные тексты, скриншоты приложения и финальный оффер клиента.</p></div></section>
-    <footer class="wrap footer"><p>© 2026 SilentGram. Все права защищены.</p><p>Премиальный статический landing page для GitHub Pages и VPS.</p></footer>
+    <div class="top-line"></div>
+    <div class="bg"></div>
+    <div class="dots"></div>
+    <div class="v-line left"></div>
+    <div class="v-line mid"></div>
+    <div class="v-line right"></div>
+
+    <header class="wrap header">
+      <a class="logo" href="#hero">
+        <span class="logo-mark">◆</span>
+        <span>SilentGram</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#features">Преимущества</a>
+        <a href="#tools">Функции</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+
+      <a class="header-button" href="#install">Скачать</a>
+    </header>
+
+    <section class="wrap hero" id="hero">
+      <div>
+        <div class="badge">Премиальный, приватный и современный клиент для Telegram</div>
+
+        <h1 class="title">
+          <span>SilentGram</span> — Премиальный Telegram-клиент для тех, кто ценит приватность
+        </h1>
+
+        <p class="lead">
+          Спокойный интерфейс, приватные сценарии, умные инструменты и более дорогой визуальный стиль —
+          всё в одной элегантной оболочке.
+        </p>
+
+        <a class="install-button" id="install" href="#">
+          Установить SilentGram
+        </a>
+
+        <div class="hero-links">
+          <a href="#features">
+            <span>Explore features<small>Преимущества</small></span>
+            <b>↗</b>
+          </a>
+
+          <a href="#tools">
+            <span>Quiet mode<small>Комфорт</small></span>
+            <b>↗</b>
+          </a>
+
+          <a href="#faq">
+            <span>Join the product<small>FAQ</small></span>
+            <b>↗</b>
+          </a>
+        </div>
+      </div>
+
+      <div class="devices" aria-hidden="true">
+        <div class="phone primary">
+          <div class="island"></div>
+
+          <div class="phone-ui">
+            <div class="phone-bar">
+              <span>9:41</span>
+              <span>Chats</span>
+              <span>•••</span>
+            </div>
+
+            <div class="phone-title">Chats</div>
+            <div class="phone-search">Search for messages or users</div>
+
+            <div class="chat">
+              <i class="avatar"></i>
+              <div>
+                <b>Saved Messages</b>
+                <span>image.jpeg</span>
+              </div>
+            </div>
+
+            <div class="chat">
+              <i class="avatar"></i>
+              <div>
+                <b>Andrew Parker</b>
+                <span>IMG_0401.PNG</span>
+              </div>
+            </div>
+
+            <div class="chat">
+              <i class="avatar"></i>
+              <div>
+                <b>Albert Lasker</b>
+                <span>What about a super idea?</span>
+              </div>
+            </div>
+
+            <div class="chat">
+              <i class="avatar"></i>
+              <div>
+                <b>SilentGram</b>
+                <span>Quiet mode is active</span>
+              </div>
+            </div>
+
+            <div class="chat">
+              <i class="avatar"></i>
+              <div>
+                <b>Julia May</b>
+                <span>Cool, thanks!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="phone secondary">
+          <div class="island"></div>
+
+          <div class="phone-ui panel">
+            <div class="phone-bar">
+              <span>9:41</span>
+              <span>All Chats</span>
+              <span>⚙</span>
+            </div>
+
+            <small>Workspace</small>
+            <div class="panel-title">Focus Mode</div>
+            <small>Clean interface enabled</small>
+
+            <div class="quick-actions">
+              <div>Mute</div>
+              <div>Hide</div>
+              <div>Reply</div>
+            </div>
+
+            <div class="phone-item">
+              <div>
+                Important chats<br />
+                <span>Ready</span>
+              </div>
+              <b>24</b>
+            </div>
+
+            <div class="phone-item">
+              <div>
+                Fast replies<br />
+                <span>Active</span>
+              </div>
+              <b>12</b>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap section" id="features">
+      <div class="badge">Почему SilentGram</div>
+
+      <h2 class="h2">Спокойнее. Дороже. Умнее.</h2>
+
+      <p class="text">
+        Премиальные плитки, тёплые золотые акценты и выразительные серые заголовки делают сайт
+        статуснее, чище и ближе к продуктовой презентации.
+      </p>
+
+      <div class="grid">
+        <article class="card">
+          <div class="icon">◈</div>
+          <h3>Приватность по умолчанию</h3>
+          <p>Больше контроля над сессиями, уведомлениями и личным пространством.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">↯</div>
+          <h3>Быстрый рабочий поток</h3>
+          <p>Чистая навигация по чатам и сценарии для работы без перегруза.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">✦</div>
+          <h3>Умный слой внутри</h3>
+          <p>Сводки, быстрые ответы и продуктивные действия там, где они полезны.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="tools">
+      <div class="badge">Возможности</div>
+
+      <h2 class="h2">Красивые плитки и функции, которые хочется показывать.</h2>
+
+      <div class="grid">
+        <article class="card">
+          <div class="icon">☾</div>
+          <h3>Тихий режим</h3>
+          <p>Аккуратная функция в премиальной золотой плитке без холодных синих оттенков.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">◇</div>
+          <h3>Скрытые чаты</h3>
+          <p>Приватные сценарии в более дорогой и спокойной визуальной оболочке.</p>
+        </article>
+
+        <article class="card">
+          <div class="icon">◎</div>
+          <h3>Умный перевод</h3>
+          <p>Лёгкий перевод сообщений без лишних действий.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section" id="faq">
+      <div class="cta">
+        <div class="badge">Готово к следующему этапу</div>
+
+        <h2 class="h2">Теперь сайт выглядит ближе к Nicegram, но в стиле SilentGram.</h2>
+
+        <p class="text">
+          Дальше подставим реальные скриншоты приложения, ссылки и финальный оффер клиента.
+        </p>
+      </div>
+    </section>
+
+    <footer class="wrap footer">
+      <p>© 2026 SilentGram. Все права защищены.</p>
+      <p>Премиальный статический landing page для GitHub Pages и VPS.</p>
+    </footer>
   </main>
 </body>
 </html>
