@@ -1855,6 +1855,312 @@
     font-size: 21px;
   }
 }
+    /* =========================
+   Advanced Telegram tools
+   ========================= */
+
+.advanced-tools-section {
+  position: relative;
+  padding: 0;
+  border-top: 1px solid rgba(208, 171, 102, 0.12);
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  background:
+    radial-gradient(circle at 14% 10%, rgba(208, 171, 102, 0.09), transparent 24%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.04));
+  overflow: hidden;
+}
+
+.advanced-tools-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.12;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(208, 171, 102, 0.72) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, transparent, black 10%, black 90%, transparent);
+}
+
+.advanced-tools-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.advanced-tools-topline {
+  height: 48px;
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  background:
+    repeating-linear-gradient(
+      -72deg,
+      rgba(255, 255, 255, 0.11) 0 1px,
+      transparent 1px 8px
+    );
+  opacity: 0.45;
+}
+
+.advanced-tools-head {
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.advanced-tools-title {
+  margin: 0;
+  max-width: 980px;
+  color: #f3f3f3;
+  font-size: clamp(42px, 4.6vw, 74px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  font-weight: 560;
+}
+
+.advanced-tools-title span {
+  color: #d0ab66;
+}
+
+.advanced-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.advanced-tool-card {
+  min-height: 430px;
+  border-right: 1px solid rgba(208, 171, 102, 0.12);
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.advanced-tool-card:first-child {
+  border-left: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.advanced-tool-status {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.advanced-tool-status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: #29df72;
+  box-shadow: 0 0 8px rgba(41, 223, 114, 0.45);
+  flex: 0 0 auto;
+}
+
+.advanced-tool-status.beta::before {
+  background: #d0ab66;
+  box-shadow: 0 0 8px rgba(208, 171, 102, 0.45);
+}
+
+.advanced-tool-body {
+  padding: 18px 22px 28px;
+}
+
+.advanced-tool-visual {
+  height: 190px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.adv-phone {
+  position: relative;
+  width: 110px;
+  height: 188px;
+  border-radius: 26px;
+  border: 1px solid rgba(208, 171, 102, 0.20);
+  background: linear-gradient(180deg, #171717, #060606);
+  box-shadow:
+    0 0 24px rgba(208, 171, 102, 0.12),
+    0 18px 50px rgba(0, 0, 0, 0.55),
+    inset 0 0 0 5px #0a0a0a;
+  overflow: hidden;
+}
+
+.adv-phone::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 42px;
+  height: 14px;
+  border-radius: 999px;
+  background: #050505;
+}
+
+.adv-phone-screen {
+  position: absolute;
+  inset: 28px 10px 10px;
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.00)),
+    #0d0d0d;
+  overflow: hidden;
+}
+
+.adv-phone-line {
+  height: 7px;
+  margin: 10px 12px 0;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.09);
+}
+
+.adv-phone-line.short {
+  width: 48%;
+}
+
+.adv-phone-line.mid {
+  width: 64%;
+}
+
+.adv-phone-line.long {
+  width: 76%;
+}
+
+.adv-phone-card {
+  margin: 14px 12px 0;
+  height: 24px;
+  border-radius: 8px;
+  background: rgba(208, 171, 102, 0.12);
+  border: 1px solid rgba(208, 171, 102, 0.10);
+}
+
+.adv-phone-badge {
+  margin: 14px 12px 0;
+  width: 62px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+}
+
+.adv-phone-list {
+  margin: 12px 12px 0;
+  display: grid;
+  gap: 8px;
+}
+
+.adv-phone-list div {
+  height: 16px;
+  border-radius: 7px;
+  background: rgba(255,255,255,0.06);
+}
+
+.advanced-tool-text h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.22;
+  letter-spacing: -0.03em;
+  font-weight: 760;
+}
+
+.advanced-tool-text h3 span {
+  color: #d0ab66;
+}
+
+.advanced-tool-text p {
+  margin: 10px 0 0;
+  color: rgba(233, 229, 221, 0.84);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.advanced-tools-bottom {
+  display: grid;
+  grid-template-columns: 1fr 210px;
+}
+
+.advanced-tools-bottom-fill {
+  min-height: 32px;
+  border-right: 1px solid rgba(208, 171, 102, 0.12);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.advanced-tools-bottom-link {
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 700;
+  border-left: 1px solid rgba(208, 171, 102, 0.08);
+}
+
+@media (max-width: 1180px) {
+  .advanced-tools-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .advanced-tool-card {
+    min-height: 400px;
+  }
+}
+
+@media (max-width: 760px) {
+  .advanced-tools-topline {
+    height: 38px;
+  }
+
+  .advanced-tools-head {
+    min-height: auto;
+    padding: 44px 0;
+  }
+
+  .advanced-tools-title {
+    font-size: clamp(36px, 10vw, 56px);
+    line-height: 1.02;
+  }
+
+  .advanced-tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .advanced-tool-card {
+    min-height: auto;
+    border-left: 1px solid rgba(208, 171, 102, 0.12);
+  }
+
+  .advanced-tool-body {
+    padding: 18px 18px 24px;
+  }
+
+  .advanced-tool-visual {
+    height: 170px;
+    margin-bottom: 20px;
+  }
+
+  .adv-phone {
+    width: 96px;
+    height: 164px;
+  }
+
+  .advanced-tool-text h3 {
+    font-size: 20px;
+  }
+
+  .advanced-tool-text p {
+    font-size: 16px;
+  }
+
+  .advanced-tools-bottom {
+    grid-template-columns: 1fr 150px;
+  }
+}
   </style>
 </head>
 
@@ -2601,6 +2907,199 @@
           <strong>Advanced privacy modes</strong> hide chats and sensitive actions
         </h3>
       </article>
+    </div>
+  </div>
+</section>
+    <section class="advanced-tools-section">
+  <div class="advanced-tools-topline" aria-hidden="true"></div>
+
+  <div class="container advanced-tools-shell">
+    <div class="advanced-tools-head">
+      <h2 class="advanced-tools-title">
+        Advanced Telegram Functionality
+      </h2>
+    </div>
+
+    <div class="advanced-tools-grid">
+      <article class="advanced-tool-card">
+        <div class="advanced-tool-status">Live</div>
+        <div class="advanced-tool-body">
+          <div class="advanced-tool-visual">
+            <div class="adv-phone">
+              <div class="adv-phone-screen">
+                <div class="adv-phone-badge"></div>
+                <div class="adv-phone-card"></div>
+                <div class="adv-phone-list">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-tool-text">
+            <h3>Multiple <span>Telegram accounts</span></h3>
+            <p>Управление несколькими аккаунтами для личного общения и работы.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="advanced-tool-card">
+        <div class="advanced-tool-status beta">Beta</div>
+        <div class="advanced-tool-body">
+          <div class="advanced-tool-visual">
+            <div class="adv-phone">
+              <div class="adv-phone-screen">
+                <div class="adv-phone-line long"></div>
+                <div class="adv-phone-line short"></div>
+                <div class="adv-phone-card"></div>
+                <div class="adv-phone-line mid"></div>
+                <div class="adv-phone-line long"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-tool-text">
+            <h3>Built-in <span>AI assistant</span></h3>
+            <p>Умные сценарии, быстрые действия и будущие AI-инструменты внутри клиента.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="advanced-tool-card">
+        <div class="advanced-tool-status">Live</div>
+        <div class="advanced-tool-body">
+          <div class="advanced-tool-visual">
+            <div class="adv-phone">
+              <div class="adv-phone-screen">
+                <div class="adv-phone-card"></div>
+                <div class="adv-phone-card"></div>
+                <div class="adv-phone-line mid"></div>
+                <div class="adv-phone-line short"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-tool-text">
+            <h3>Hidden chats &amp; <span>private space</span></h3>
+            <p>Скрытые аккаунты и чаты для более спокойного и личного сценария использования.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="advanced-tool-card">
+        <div class="advanced-tool-status">Live</div>
+        <div class="advanced-tool-body">
+          <div class="advanced-tool-visual">
+            <div class="adv-phone">
+              <div class="adv-phone-screen">
+                <div class="adv-phone-line mid"></div>
+                <div class="adv-phone-card"></div>
+                <div class="adv-phone-line long"></div>
+                <div class="adv-phone-line short"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-tool-text">
+            <h3>Voice notes &amp; <span>quick capture</span></h3>
+            <p>Быстрая работа с голосовыми сообщениями и сохранёнными материалами.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="advanced-tool-card">
+        <div class="advanced-tool-status">Live</div>
+        <div class="advanced-tool-body">
+          <div class="advanced-tool-visual">
+            <div class="adv-phone">
+              <div class="adv-phone-screen">
+                <div class="adv-phone-line long"></div>
+                <div class="adv-phone-line long"></div>
+                <div class="adv-phone-line mid"></div>
+                <div class="adv-phone-badge"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-tool-text">
+            <h3>In-chat <span>translation</span></h3>
+            <p>Перевод входящих и исходящих сообщений прямо внутри чатов.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="advanced-tool-card">
+        <div class="advanced-tool-status">Live</div>
+        <div class="advanced-tool-body">
+          <div class="advanced-tool-visual">
+            <div class="adv-phone">
+              <div class="adv-phone-screen">
+                <div class="adv-phone-card"></div>
+                <div class="adv-phone-line long"></div>
+                <div class="adv-phone-line mid"></div>
+                <div class="adv-phone-line short"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-tool-text">
+            <h3>Quick replies &amp; <span>templates</span></h3>
+            <p>Заготовки и быстрые ответы для комфортной и стабильной коммуникации.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="advanced-tool-card">
+        <div class="advanced-tool-status">Live</div>
+        <div class="advanced-tool-body">
+          <div class="advanced-tool-visual">
+            <div class="adv-phone">
+              <div class="adv-phone-screen">
+                <div class="adv-phone-badge"></div>
+                <div class="adv-phone-line short"></div>
+                <div class="adv-phone-card"></div>
+                <div class="adv-phone-card"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-tool-text">
+            <h3>Media sharing <span>made easier</span></h3>
+            <p>Удобная отправка контента, быстрый доступ к медиа и более гибкая подача.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="advanced-tool-card">
+        <div class="advanced-tool-status beta">Beta</div>
+        <div class="advanced-tool-body">
+          <div class="advanced-tool-visual">
+            <div class="adv-phone">
+              <div class="adv-phone-screen">
+                <div class="adv-phone-card"></div>
+                <div class="adv-phone-card"></div>
+                <div class="adv-phone-line long"></div>
+                <div class="adv-phone-line mid"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="advanced-tool-text">
+            <h3>Premium tools &amp; <span>future modules</span></h3>
+            <p>Расширяемая система дополнительных функций для следующих этапов продукта.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="advanced-tools-bottom">
+      <div class="advanced-tools-bottom-fill"></div>
+      <div class="advanced-tools-bottom-link">
+        <span>View more</span>
+        <span>↗</span>
+      </div>
     </div>
   </div>
 </section>
