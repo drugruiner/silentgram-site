@@ -53,13 +53,7 @@
   }
 
   .top-line {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 280px;
-    height: 2px;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, transparent, #d0ab66, transparent);
+    display: none;
   }
 
   .side-line {
@@ -86,16 +80,14 @@
     z-index: 1;
   }
 
-  /* =========================
-     Header
-     ========================= */
+  /* HEADER */
 
   .header {
     height: 76px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 48px;
+    justify-content: flex-start;
+    gap: 0;
     border-bottom: 1px solid rgba(208, 171, 102, 0.11);
   }
 
@@ -159,30 +151,19 @@
     position: relative;
     color: #f2eee7;
     opacity: 0.92;
-    transition:
-      color 0.25s ease,
-      opacity 0.25s ease;
+    transition: color 0.25s ease, opacity 0.25s ease;
   }
 
-  .nav a:hover {
-    color: #d0ab66;
-    opacity: 1;
-  }
-
+  .nav a:hover,
   .nav a:first-child {
     color: #d0ab66;
     opacity: 1;
   }
 
+  .nav a::after,
   .nav a:first-child::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -31px;
-    width: 42px;
-    height: 2px;
-    transform: translateX(-50%);
-    background: linear-gradient(90deg, transparent, #d0ab66, transparent);
+    display: none;
+    content: none;
   }
 
   .header-cta,
@@ -192,9 +173,7 @@
     display: none;
   }
 
-  /* =========================
-     Hero
-     ========================= */
+  /* HERO */
 
   .hero {
     display: grid;
@@ -262,10 +241,7 @@
     font-size: 16px;
     font-weight: 750;
     overflow: hidden;
-    transition:
-      transform 0.25s ease,
-      color 0.25s ease,
-      border-color 0.25s ease;
+    transition: transform 0.25s ease, color 0.25s ease, border-color 0.25s ease;
   }
 
   .install-button::before {
@@ -320,9 +296,7 @@
     font-weight: 650;
   }
 
-  /* =========================
-     Phone visual
-     ========================= */
+  /* PHONE */
 
   .hero-visual {
     position: relative;
@@ -349,9 +323,7 @@
     border-radius: 44px;
     border: 1px solid rgba(208, 171, 102, 0.22);
     background: linear-gradient(180deg, #171717, #050505);
-    box-shadow:
-      0 34px 95px rgba(0, 0, 0, 0.7),
-      inset 0 0 0 7px #0a0a0a;
+    box-shadow: 0 34px 95px rgba(0, 0, 0, 0.7), inset 0 0 0 7px #0a0a0a;
     overflow: hidden;
   }
 
@@ -489,9 +461,7 @@
     color: #a59a89;
   }
 
-  /* =========================
-     Sections
-     ========================= */
+  /* SECTIONS */
 
   .section {
     padding: 90px 0;
@@ -578,10 +548,6 @@
     font-size: 14px;
   }
 
-  /* =========================
-     Responsive
-     ========================= */
-
   @media (max-width: 1120px) {
     .hero {
       grid-template-columns: 1fr;
@@ -629,10 +595,6 @@
       flex-wrap: wrap;
       gap: 18px;
       font-size: 14px;
-    }
-
-    .nav a:first-child::after {
-      display: none;
     }
 
     .hero-copy {
