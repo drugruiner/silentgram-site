@@ -1197,6 +1197,291 @@
     padding-bottom: 28px !important;
   }
 }
+    /* =========================
+   SilentGram vs Telegram block
+   ========================= */
+
+.compare-section {
+  position: relative;
+  padding: 0;
+  border-top: 1px solid rgba(208, 171, 102, 0.12);
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  background:
+    radial-gradient(circle at 82% 10%, rgba(208, 171, 102, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.04));
+  overflow: hidden;
+}
+
+.compare-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.13;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(208, 171, 102, 0.72) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+}
+
+.compare-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.compare-hero {
+  min-height: 245px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  align-items: center;
+  gap: 48px;
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.compare-title {
+  margin: 0;
+  color: #f1f1f1;
+  font-size: clamp(44px, 4.2vw, 74px);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+  font-weight: 560;
+}
+
+.compare-title span {
+  color: #d0ab66;
+}
+
+.compare-emblem {
+  position: relative;
+  min-height: 210px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compare-emblem::before {
+  content: "";
+  position: absolute;
+  width: 360px;
+  height: 220px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(208, 171, 102, 0.16), rgba(208, 171, 102, 0.04) 48%, transparent 74%);
+  filter: blur(18px);
+}
+
+.compare-emblem-inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.compare-brand-mark,
+.compare-telegram-mark {
+  width: 138px;
+  height: 138px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(208, 171, 102, 0.18);
+  background: rgba(0, 0, 0, 0.18);
+  box-shadow:
+    0 0 28px rgba(208, 171, 102, 0.15),
+    inset 0 0 26px rgba(255, 255, 255, 0.03);
+}
+
+.compare-brand-mark svg,
+.compare-telegram-mark svg {
+  width: 78px;
+  height: 78px;
+  color: rgba(255, 255, 255, 0.9);
+  filter:
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.18))
+    drop-shadow(0 0 26px rgba(208, 171, 102, 0.14));
+}
+
+.compare-vs {
+  color: #d0ab66;
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  text-shadow: 0 0 24px rgba(208, 171, 102, 0.28);
+}
+
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.compare-card {
+  min-height: 520px;
+  padding: 58px 28px 42px;
+  border-right: 1px solid rgba(208, 171, 102, 0.12);
+  background: rgba(0, 0, 0, 0.14);
+}
+
+.compare-card:first-child {
+  border-left: 1px solid rgba(208, 171, 102, 0.12);
+}
+
+.compare-visual {
+  position: relative;
+  height: 230px;
+  margin-bottom: 36px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.compare-visual::before {
+  content: "";
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.13), rgba(255, 255, 255, 0.035) 52%, transparent 74%);
+  filter: blur(9px);
+}
+
+.compare-visual::after {
+  content: "";
+  position: absolute;
+  bottom: 20px;
+  width: 170px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  opacity: 0.7;
+}
+
+.compare-icon {
+  position: relative;
+  z-index: 2;
+  width: 156px;
+  height: 156px;
+  color: rgba(255, 255, 255, 0.86);
+  filter:
+    drop-shadow(0 0 10px rgba(255, 255, 255, 0.16))
+    drop-shadow(0 0 32px rgba(255, 255, 255, 0.08));
+}
+
+.compare-card h3 {
+  margin: 0 0 16px;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.18;
+  font-weight: 760;
+  letter-spacing: -0.035em;
+}
+
+.compare-card h3 span {
+  color: #d0ab66;
+}
+
+.compare-card ul {
+  margin: 0;
+  padding-left: 20px;
+  color: rgba(233, 229, 221, 0.82);
+  font-size: 18px;
+  line-height: 1.55;
+}
+
+.compare-card li {
+  margin: 4px 0;
+}
+
+.compare-bottom-line {
+  height: 54px;
+  background:
+    repeating-linear-gradient(
+      -72deg,
+      rgba(255, 255, 255, 0.11) 0 1px,
+      transparent 1px 8px
+    );
+  opacity: 0.5;
+}
+
+@media (max-width: 1180px) {
+  .compare-hero {
+    grid-template-columns: 1fr;
+    padding-top: 56px;
+    gap: 28px;
+  }
+
+  .compare-emblem {
+    justify-content: flex-start;
+  }
+
+  .compare-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .compare-card:nth-child(2) {
+    border-right: 1px solid rgba(208, 171, 102, 0.12);
+  }
+}
+
+@media (max-width: 760px) {
+  .compare-hero {
+    min-height: auto;
+    padding: 44px 0 34px;
+  }
+
+  .compare-title {
+    font-size: clamp(38px, 10vw, 58px);
+    line-height: 1.02;
+  }
+
+  .compare-emblem {
+    min-height: 150px;
+  }
+
+  .compare-brand-mark,
+  .compare-telegram-mark {
+    width: 98px;
+    height: 98px;
+  }
+
+  .compare-brand-mark svg,
+  .compare-telegram-mark svg {
+    width: 58px;
+    height: 58px;
+  }
+
+  .compare-vs {
+    font-size: 28px;
+  }
+
+  .compare-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compare-card {
+    min-height: auto;
+    padding: 38px 24px 34px;
+    border-left: 1px solid rgba(208, 171, 102, 0.12);
+    border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  }
+
+  .compare-visual {
+    height: 190px;
+    margin-bottom: 28px;
+  }
+
+  .compare-icon {
+    width: 128px;
+    height: 128px;
+  }
+
+  .compare-card h3 {
+    font-size: 21px;
+  }
+
+  .compare-card ul {
+    font-size: 16px;
+  }
+}
   </style>
 </head>
 
@@ -1523,40 +1808,217 @@
   </div>
 </section>
 
-    <section class="container section" id="faq">
-      <div class="cta">
-        <div class="eyebrow">Готово к следующему этапу</div>
+    <div class="compare-brand-mark">
+            <svg viewBox="0 0 120 120">
+              <path
+                d="M22 61L90 28C95 26 99 31 97 36L72 92C70 98 62 98 59 93L50 72L28 67C22 66 19 63 22 61Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="7"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M50 71L73 48"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="7"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
 
-        <h2 class="section-title">Теперь сайт выглядит ближе к Nicegram, но в стиле SilentGram.</h2>
+          <div class="compare-vs">vs</div>
 
-        <p class="section-text">
-          Дальше подставим реальные скриншоты приложения, ссылки и финальный оффер клиента.
-        </p>
+          <div class="compare-telegram-mark">
+            <svg viewBox="0 0 120 120">
+              <path
+                d="M20 62L96 27C101 25 105 30 103 35L77 91C74 98 66 98 62 92L52 72L27 67C20 65 16 64 20 62Z"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="5.5"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M52 71L78 47"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="5.5"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
 
-    <footer class="container footer">
-      <p>© 2026 SilentGram. Все права защищены.</p>
-      <p>Премиальный статический landing page для GitHub Pages и VPS.</p>
-    </footer>
-  </main>
-  <script>
-  const rails = document.querySelectorAll(".scroll-rail");
+    <div class="compare-grid">
+      <article class="compare-card">
+        <div class="compare-visual">
+          <svg class="compare-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <path
+              d="M18 63L92 28C98 25 103 31 100 37L73 92C70 99 62 99 58 93L48 71L24 66C18 65 15 62 18 63Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5.5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M48 70L75 45"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5.5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M29 84H91"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              opacity="0.18"
+            />
+          </svg>
+        </div>
 
-  function updateScrollRails() {
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
-    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-    const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+        <h3><span>Telegram</span> — это база</h3>
+        <ul>
+          <li>Привычный мессенджер</li>
+          <li>Стандартный интерфейс</li>
+          <li>Мало визуальной гибкости</li>
+        </ul>
+      </article>
 
-    rails.forEach((rail) => {
-      rail.style.setProperty("--progress", `${progress}%`);
-    });
-  }
+      <article class="compare-card">
+        <div class="compare-visual">
+          <svg class="compare-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <rect
+              x="27"
+              y="36"
+              width="66"
+              height="58"
+              rx="14"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+            />
+            <path
+              d="M40 54H80M40 68H66M40 82H74"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              opacity="0.82"
+            />
+            <path
+              d="M86 28L98 16M90 18H98V26"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              opacity="0.75"
+            />
+          </svg>
+        </div>
 
-  updateScrollRails();
+        <h3><span>SilentGram</span> выглядит дороже</h3>
+        <ul>
+          <li>Более спокойный визуал</li>
+          <li>Премиальная подача</li>
+          <li>Акцент на комфорт</li>
+        </ul>
+      </article>
 
-  window.addEventListener("scroll", updateScrollRails, { passive: true });
-  window.addEventListener("resize", updateScrollRails);
+      <article class="compare-card">
+        <div class="compare-visual">
+          <svg class="compare-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <rect
+              x="34"
+              y="48"
+              width="52"
+              height="42"
+              rx="10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+            />
+            <path
+              d="M45 48V38C45 29 51 22 60 22C69 22 75 29 75 38V48"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M55 68L63 76L78 58"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+
+        <h3><span>Telegram</span> не всегда про приватность</h3>
+        <ul>
+          <li>Много лишнего шума</li>
+          <li>Меньше контроля над средой</li>
+          <li>Стандартные сценарии общения</li>
+        </ul>
+      </article>
+
+      <article class="compare-card">
+        <div class="compare-visual">
+          <svg class="compare-icon" viewBox="0 0 120 120" aria-hidden="true">
+            <rect
+              x="38"
+              y="22"
+              width="44"
+              height="76"
+              rx="12"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+            />
+            <path
+              d="M48 42H72M48 56H68M48 70H64"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              opacity="0.82"
+            />
+            <path
+              d="M86 34L99 26M87 57L101 57M86 80L99 88"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              opacity="0.65"
+            />
+            <path
+              d="M21 34L34 42M19 57L33 57M21 88L34 80"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="4"
+              stroke-linecap="round"
+              opacity="0.65"
+            />
+          </svg>
+        </div>
+
+        <h3><span>SilentGram</span> добавляет контроль</h3>
+        <ul>
+          <li>Аккуратная работа с чатами</li>
+          <li>Быстрые действия</li>
+          <li>Более личное пространство</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="compare-bottom-line" aria-hidden="true"></div>
+  </div>
 </script>
 </body>
 </html>
