@@ -3251,6 +3251,45 @@
     transform: translateX(3%) translateY(8px) !important;
   }
 }
+    /* =========================
+   Hero entrance animation
+   ========================= */
+
+.hero-title,
+.hero-text {
+  opacity: 0;
+  transform: translateY(34px);
+  animation: heroTextUp 0.85s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-title {
+  animation-delay: 0.12s;
+}
+
+.hero-text {
+  animation-delay: 0.28s;
+}
+
+@keyframes heroTextUp {
+  from {
+    opacity: 0;
+    transform: translateY(34px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-title,
+  .hero-text {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
   </style>
 </head>
 
@@ -4238,6 +4277,21 @@
 </main>
 
 <script>
+  if ("scrollRestoration" in history) {
+  history.scrollRestoration = "manual";
+}
+
+window.addEventListener("load", () => {
+  if (window.location.hash) {
+    history.replaceState(null, "", window.location.pathname + window.location.search);
+  }
+
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "instant"
+  });
+});
   const rails = document.querySelectorAll(".scroll-rail");
 
   function updateScrollRails() {
