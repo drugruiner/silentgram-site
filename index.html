@@ -2161,6 +2161,50 @@
     grid-template-columns: 1fr 150px;
   }
 }
+    /* ===== FIX advanced tools row status alignment ===== */
+
+.advanced-tool-card {
+  min-height: auto !important;
+  display: grid !important;
+  grid-template-rows: 24px 1fr !important;
+}
+
+.advanced-tool-body {
+  min-height: 360px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+}
+
+.advanced-tools-grid {
+  align-items: stretch !important;
+}
+
+@media (min-width: 1181px) {
+  .advanced-tool-card {
+    height: 430px !important;
+  }
+
+  .advanced-tool-body {
+    min-height: 406px !important;
+  }
+}
+
+@media (max-width: 1180px) {
+  .advanced-tool-card {
+    height: auto !important;
+  }
+
+  .advanced-tool-body {
+    min-height: 340px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .advanced-tool-body {
+    min-height: auto !important;
+  }
+}
   </style>
 </head>
 
