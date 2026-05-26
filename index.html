@@ -3194,6 +3194,63 @@
     transform: translateX(3%) translateY(8px);
   }
 }
+    /* HARD RESET: убираем старые HTML/CSS телефоны из hero */
+.hero > .phone,
+.hero .phone.main,
+.hero .phone.back,
+.hero .phone-screen-image,
+.hero .phone-inner,
+.hero .island {
+  display: none !important;
+}
+
+/* отключаем старый световой круг от старой hero-visual */
+.hero-visual-art::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* финальная картинка телефонов */
+.hero-visual-art {
+  position: relative !important;
+  min-height: 650px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important;
+}
+
+.hero-phones-art {
+  display: block !important;
+  width: auto !important;
+  max-width: 760px !important;
+  height: auto !important;
+  max-height: 650px !important;
+  object-fit: contain !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  pointer-events: none !important;
+  user-select: none !important;
+  filter:
+    drop-shadow(0 34px 90px rgba(0, 0, 0, 0.62))
+    drop-shadow(0 0 36px rgba(208, 171, 102, 0.08));
+}
+
+@media (max-width: 760px) {
+  .hero-visual-art {
+    min-height: 340px !important;
+    margin-top: 24px !important;
+  }
+
+  .hero-phones-art {
+    width: 118% !important;
+    max-width: none !important;
+    max-height: none !important;
+    transform: translateX(3%) translateY(8px) !important;
+  }
+}
   </style>
 </head>
 
@@ -3342,17 +3399,8 @@
         </div>
       </div>
 
-      <div class="hero-visual hero-visual-art" aria-hidden="true">
+     <div class="hero-visual hero-visual-art" aria-hidden="true">
   <img class="hero-phones-art" src="assets/screens/hero-phones-transparent.png" alt="">
-</div>
-
-  <div class="phone back has-screen">
-    <div class="island"></div>
-
-    <div class="phone-screen-image">
-      <img src="assets/screens/hero-screen.jpg" alt="">
-    </div>
-  </div>
 </div>
 </section>
 
