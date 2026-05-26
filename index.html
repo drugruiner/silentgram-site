@@ -2205,6 +2205,66 @@
     min-height: auto !important;
   }
 }
+    /* ===== FINAL FIX advanced tools compact rows ===== */
+
+.advanced-tools-grid {
+  align-items: start !important;
+}
+
+.advanced-tool-card {
+  height: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+}
+
+.advanced-tool-body {
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 18px 22px 34px !important;
+}
+
+.advanced-tool-visual {
+  height: 150px !important;
+  margin-bottom: 22px !important;
+}
+
+.adv-phone {
+  width: 88px !important;
+  height: 150px !important;
+  border-radius: 22px !important;
+}
+
+.adv-phone-screen {
+  inset: 26px 9px 9px !important;
+}
+
+.advanced-tool-text h3 {
+  font-size: 20px !important;
+  line-height: 1.18 !important;
+  margin: 0 !important;
+}
+
+.advanced-tool-text p {
+  font-size: 15px !important;
+  line-height: 1.42 !important;
+  margin-top: 10px !important;
+}
+
+@media (min-width: 1181px) {
+  .advanced-tool-card {
+    min-height: 340px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .advanced-tool-visual {
+    height: 145px !important;
+  }
+
+  .advanced-tool-body {
+    padding: 18px 18px 28px !important;
+  }
+}
   </style>
 </head>
 
