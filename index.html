@@ -3161,6 +3161,39 @@
     transform: translateX(4%) translateY(8px);
   }
 }
+    .hero-visual-art {
+  position: relative;
+  min-height: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+}
+
+.hero-phones-art {
+  display: block;
+  width: min(100%, 780px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  filter:
+    drop-shadow(0 34px 90px rgba(0, 0, 0, 0.62))
+    drop-shadow(0 0 36px rgba(208, 171, 102, 0.08));
+}
+
+@media (max-width: 760px) {
+  .hero-visual-art {
+    min-height: 360px !important;
+    margin-top: 24px;
+  }
+
+  .hero-phones-art {
+    width: 118%;
+    max-width: none;
+    transform: translateX(3%) translateY(8px);
+  }
+}
   </style>
 </head>
 
@@ -3310,7 +3343,7 @@
       </div>
 
       <div class="hero-visual hero-visual-art" aria-hidden="true">
-  <img class="hero-phones-art" src="assets/screens/hero-phones.png" alt="">
+  <img class="hero-phones-art" src="assets/screens/hero-phones-transparent.png" alt="">
 </div>
 
   <div class="phone back has-screen">
