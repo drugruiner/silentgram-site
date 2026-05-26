@@ -3339,6 +3339,32 @@
     transition: none !important;
   }
 }
+    /* Mobile sticky header blur */
+@media (max-width: 760px) {
+  .site-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 300 !important;
+    background: rgba(5, 5, 5, 0.58) !important;
+    backdrop-filter: blur(18px) saturate(130%) !important;
+    -webkit-backdrop-filter: blur(18px) saturate(130%) !important;
+    border-bottom: 1px solid rgba(208, 171, 102, 0.14) !important;
+  }
+
+  .site-header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(5, 5, 5, 0.34);
+    pointer-events: none;
+  }
+
+  .header-inner {
+    position: relative !important;
+    z-index: 1 !important;
+  }
+}
   </style>
 </head>
 
