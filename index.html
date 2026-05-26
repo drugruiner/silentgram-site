@@ -301,32 +301,11 @@
     filter: blur(18px);
   }
 
-  .phone {
-    position: absolute;
-    width: 300px;
-    height: 555px;
-    border-radius: 44px;
-    border: 1px solid rgba(208, 171, 102, 0.22);
-    background: linear-gradient(180deg, #171717, #050505);
-    box-shadow: 0 34px 95px rgba(0, 0, 0, 0.7), inset 0 0 0 7px #0a0a0a;
-    overflow: hidden;
-  }
+ 
 
-  .phone.main {
-    left: 11%;
-    top: 11%;
-    z-index: 2;
-    transform: rotate(-2deg);
-  }
+  
 
-  .phone.back {
-    right: 7%;
-    top: 19%;
-    z-index: 1;
-    transform: rotate(5deg);
-    opacity: 0.92;
-  }
-
+ 
   .island {
     position: absolute;
     top: 16px;
@@ -338,9 +317,7 @@
     background: #050505;
   }
 
-  .phone-inner {
-    padding: 56px 20px 18px;
-  }
+ 
 
   .phone-bar {
     display: flex;
@@ -350,13 +327,7 @@
     font-size: 13px;
   }
 
-  .phone-title {
-    margin: 18px 0 12px;
-    text-align: center;
-    color: #e6e1d8;
-    font-weight: 700;
-  }
-
+  
   .search {
     height: 36px;
     margin-bottom: 16px;
@@ -3016,20 +2987,6 @@
   }
 }
     /* FIX: плотнее заполняем скрином hero-телефоны */
-.phone-screen-image {
-  inset: 0 !important;
-  border-radius: 38px !important;
-  background: #050505 !important;
-}
-
-.phone-screen-image img {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: cover !important;
-  object-position: center top !important;
-  transform: scale(1.14) translateY(-2.5%) !important;
-  transform-origin: top center !important;
-}
 
 .phone.has-screen .island {
   display: none !important;
@@ -3300,14 +3257,9 @@
         </div>
       </div>
 
-      <div class="hero-visual" aria-hidden="true">
-  <div class="phone main has-screen">
-    <div class="island"></div>
-
-    <div class="phone-screen-image">
-      <img src="assets/screens/hero-screen.jpg" alt="">
-    </div>
-  </div>
+      <div class="hero-visual hero-visual-art" aria-hidden="true">
+  <img class="hero-phones-art" src="assets/screens/hero-phones.png" alt="">
+</div>
 
   <div class="phone back has-screen">
     <div class="island"></div>
