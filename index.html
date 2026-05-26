@@ -926,6 +926,141 @@
     right: 0;
   }
 }
+    /* HERO FIX — нормальные пропорции как у референса */
+
+.sg-hero {
+  width: min(100% - 64px, 1580px);
+  min-height: calc(100vh - 76px);
+}
+
+.sg-hero-grid {
+  grid-template-columns: 52% 48%;
+  min-height: 650px;
+  align-items: stretch;
+}
+
+.sg-hero-left {
+  padding: 56px 70px 52px 0;
+  justify-content: center;
+}
+
+.sg-title {
+  max-width: 760px;
+  font-size: clamp(52px, 4.6vw, 76px);
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+
+.sg-description {
+  max-width: 660px;
+  font-size: 20px;
+  line-height: 1.65;
+}
+
+.sg-hero-right {
+  min-height: 650px;
+  overflow: hidden;
+}
+
+.sg-phone {
+  width: 300px;
+  height: 555px;
+  border-radius: 44px;
+}
+
+.sg-phone-main {
+  left: 7%;
+  top: 8%;
+}
+
+.sg-phone-second {
+  right: 4%;
+  top: 16%;
+}
+
+.sg-phone-ui {
+  padding: 54px 20px 18px;
+}
+
+.sg-chat {
+  padding: 9px 0;
+}
+
+.sg-avatar {
+  width: 38px;
+  height: 38px;
+}
+
+.sg-hero-nav {
+  margin-top: 0;
+}
+
+@media (max-width: 1200px) {
+  .sg-title {
+    font-size: clamp(46px, 5vw, 64px);
+  }
+
+  .sg-phone {
+    width: 270px;
+    height: 505px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .sg-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sg-hero-left {
+    padding-right: 0;
+    border-right: 0;
+  }
+
+  .sg-title {
+    max-width: 900px;
+    font-size: clamp(44px, 8vw, 66px);
+  }
+
+  .sg-hero-right {
+    min-height: 560px;
+  }
+}
+
+@media (max-width: 720px) {
+  .sg-hero {
+    width: min(100% - 32px, 1580px);
+  }
+
+  .sg-title {
+    font-size: clamp(38px, 11vw, 54px);
+    line-height: 1.04;
+  }
+
+  .sg-description {
+    font-size: 18px;
+  }
+
+  .sg-hero-right {
+    min-height: 430px;
+    transform: none;
+  }
+
+  .sg-phone {
+    width: 230px;
+    height: 430px;
+  }
+
+  .sg-phone-main {
+    left: 0;
+    top: 4%;
+  }
+
+  .sg-phone-second {
+    right: -20px;
+    top: 14%;
+  }
+}
   </style>
 </head>
 
