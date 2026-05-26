@@ -2714,6 +2714,183 @@
     font-size: 16px;
   }
 }
+    /* =========================
+   Mobile-only header/menu
+   Desktop stays unchanged
+   ========================= */
+
+.mobile-menu-button,
+.mobile-menu-close,
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .header-inner {
+    height: 74px !important;
+    padding: 0 !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+  }
+
+  .site-header .nav {
+    display: none !important;
+  }
+
+  .site-header .logo {
+    font-size: 23px !important;
+  }
+
+  .site-header .logo-icon {
+    width: 24px !important;
+    height: 24px !important;
+    flex-basis: 24px !important;
+  }
+
+  .mobile-menu-button {
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 6px;
+    flex: 0 0 auto;
+    border: 1px solid rgba(208, 171, 102, 0.18);
+    background: rgba(0, 0, 0, 0.28);
+    cursor: pointer;
+  }
+
+  .mobile-menu-button span {
+    width: 24px;
+    height: 2px;
+    display: block;
+    border-radius: 999px;
+    background: #d0ab66;
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 500;
+    display: block;
+    background:
+      radial-gradient(circle at 16% 8%, rgba(208, 171, 102, 0.10), transparent 24%),
+      #050505;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.28s ease,
+      visibility 0.28s ease,
+      transform 0.28s ease;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .mobile-menu::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.12;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(208, 171, 102, 0.72) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+    mask-image: linear-gradient(180deg, transparent, black 10%, black 90%, transparent);
+  }
+
+  .mobile-menu-head {
+    position: relative;
+    z-index: 1;
+    min-height: 86px;
+    padding: 0 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(208, 171, 102, 0.14);
+  }
+
+  .mobile-menu-head .logo {
+    font-size: 26px !important;
+  }
+
+  .mobile-menu-close {
+    width: 54px;
+    height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: transparent;
+    color: #d0ab66;
+    font-size: 48px;
+    line-height: 1;
+    font-weight: 300;
+    cursor: pointer;
+  }
+
+  .mobile-menu-list {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    margin: 0 22px 34px;
+    border-top: 1px solid rgba(208, 171, 102, 0.12);
+    border-left: 1px solid rgba(208, 171, 102, 0.12);
+    border-right: 1px solid rgba(208, 171, 102, 0.12);
+  }
+
+  .mobile-menu-list a {
+    min-height: 112px;
+    display: grid;
+    grid-template-columns: 76px 1fr 42px;
+    align-items: center;
+    border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+    color: #f2f2f2;
+    text-decoration: none;
+  }
+
+  .mobile-menu-list a span {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    border-right: 1px solid rgba(208, 171, 102, 0.12);
+    color: rgba(244, 238, 230, 0.55);
+    font-size: 23px;
+    font-weight: 560;
+  }
+
+  .mobile-menu-list a strong {
+    padding-left: 30px;
+    color: #f4f4f4;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 520;
+    letter-spacing: -0.05em;
+  }
+
+  .mobile-menu-list a b {
+    color: rgba(244, 238, 230, 0.36);
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  .mobile-menu-list a:active {
+    background: rgba(208, 171, 102, 0.06);
+  }
+}
   </style>
 </head>
 
@@ -2746,9 +2923,71 @@
   <a href="#tools">Функции</a>
   <a href="#advanced">Дополнительно</a>
   <a href="#faq">FAQ</a>
+        <button class="mobile-menu-button" type="button" aria-label="Открыть меню">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 </nav>
     </div>
   </header>
+  <div class="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-head">
+    <a class="logo" href="#hero">
+      <svg class="logo-icon" viewBox="0 0 32 32" aria-hidden="true">
+        <path
+          d="M5.2 16.7L25.8 6.6C27.4 5.8 29 7.4 28.2 9L18.1 29.6C17.3 31.2 15 30.9 14.7 29.1L13.2 20.1L5.8 18.4C4.1 18 3.7 17.4 5.2 16.7Z"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.8"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M13.5 19.7L20.2 13"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.8"
+          stroke-linecap="round"
+        />
+      </svg>
+      <span>SilentGram</span>
+    </a>
+
+    <button class="mobile-menu-close" type="button" aria-label="Закрыть меню">×</button>
+  </div>
+
+  <nav class="mobile-menu-list">
+    <a href="#hero">
+      <span>1</span>
+      <strong>Home</strong>
+      <b>↗</b>
+    </a>
+
+    <a href="#features">
+      <span>2</span>
+      <strong>Преимущества</strong>
+      <b>↗</b>
+    </a>
+
+    <a href="#tools">
+      <span>3</span>
+      <strong>Функции</strong>
+      <b>↗</b>
+    </a>
+
+    <a href="#advanced">
+      <span>4</span>
+      <strong>Дополнительно</strong>
+      <b>↗</b>
+    </a>
+
+    <a href="#faq">
+      <span>5</span>
+      <strong>FAQ</strong>
+      <b>↗</b>
+    </a>
+  </nav>
+</div>
 
   <main class="page">
     <div class="scroll-rail scroll-rail-left" aria-hidden="true">
@@ -3804,6 +4043,39 @@ faqItems.forEach((item) => {
     item.classList.toggle("is-open");
   });
 });
+  const mobileMenu = document.querySelector(".mobile-menu");
+const mobileMenuButton = document.querySelector(".mobile-menu-button");
+const mobileMenuClose = document.querySelector(".mobile-menu-close");
+const mobileMenuLinks = document.querySelectorAll(".mobile-menu-list a");
+
+function openMobileMenu() {
+  if (!mobileMenu) return;
+  mobileMenu.classList.add("is-open");
+  document.body.classList.add("menu-open");
+  mobileMenu.setAttribute("aria-hidden", "false");
+}
+
+function closeMobileMenu() {
+  if (!mobileMenu) return;
+  mobileMenu.classList.remove("is-open");
+  document.body.classList.remove("menu-open");
+  mobileMenu.setAttribute("aria-hidden", "true");
+}
+
+if (mobileMenuButton && mobileMenuClose) {
+  mobileMenuButton.addEventListener("click", openMobileMenu);
+  mobileMenuClose.addEventListener("click", closeMobileMenu);
+
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMobileMenu();
+    }
+  });
+}
 </script>
 </body>
 </html>
