@@ -977,6 +977,199 @@
     height: 100px;
   }
 }
+    /* =========================
+   Nicegram-like feature grid
+   ========================= */
+
+.feature-grid-section {
+  position: relative;
+  padding: 86px 0 0;
+  border-top: 1px solid rgba(208, 171, 102, 0.12);
+  border-bottom: 1px solid rgba(208, 171, 102, 0.12);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(208, 171, 102, 0.10), transparent 22%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.02));
+}
+
+.feature-grid-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.14;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(208, 171, 102, 0.72) 1px, transparent 1.5px);
+  background-size: 22px 22px;
+  mask-image: linear-gradient(180deg, transparent, black 10%, black 90%, transparent);
+}
+
+.feature-grid-shell {
+  position: relative;
+  z-index: 1;
+}
+
+.feature-grid-head {
+  max-width: 980px;
+  padding: 0 0 54px;
+}
+
+.feature-grid-title {
+  margin: 26px 0 0;
+  color: #d7d9df;
+  font-size: clamp(48px, 5.5vw, 88px);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  font-weight: 760;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid rgba(208, 171, 102, 0.14);
+}
+
+.feature-item {
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-right: 1px solid rgba(208, 171, 102, 0.14);
+  border-left: 1px solid rgba(208, 171, 102, 0.04);
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.feature-item:first-child {
+  border-left: 1px solid rgba(208, 171, 102, 0.14);
+}
+
+.feature-visual {
+  position: relative;
+  min-height: 290px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.feature-visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, rgba(255,255,255,0.035), transparent 52%);
+  opacity: 0.7;
+}
+
+.feature-glow {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(255,255,255,0.16), rgba(255,255,255,0.04) 54%, transparent 76%);
+  filter: blur(8px);
+}
+
+.feature-icon {
+  position: relative;
+  z-index: 2;
+  width: 220px;
+  height: 220px;
+  display: block;
+  color: rgba(255, 255, 255, 0.92);
+  filter:
+    drop-shadow(0 0 10px rgba(255,255,255,0.16))
+    drop-shadow(0 0 34px rgba(255,255,255,0.10));
+}
+
+.feature-item-body {
+  padding: 0 48px 42px;
+}
+
+.feature-item-body h3 {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 760;
+  letter-spacing: -0.03em;
+}
+
+.feature-item-body p {
+  margin: 0;
+  color: rgba(233, 229, 221, 0.82);
+  font-size: 18px;
+  line-height: 1.58;
+}
+
+/* Немного разные размеры иконок */
+.feature-icon-plane {
+  width: 230px;
+  height: 230px;
+}
+
+.feature-icon-lock {
+  width: 210px;
+  height: 210px;
+}
+
+.feature-icon-team {
+  width: 220px;
+  height: 220px;
+}
+
+@media (max-width: 1100px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-item {
+    min-height: auto;
+    border-left: 1px solid rgba(208, 171, 102, 0.14);
+    border-bottom: 1px solid rgba(208, 171, 102, 0.14);
+  }
+
+  .feature-visual {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 760px) {
+  .feature-grid-section {
+    padding: 64px 0 0;
+  }
+
+  .feature-grid-head {
+    padding-bottom: 36px;
+  }
+
+  .feature-grid-title {
+    font-size: clamp(40px, 10vw, 58px);
+    line-height: 1.02;
+  }
+
+  .feature-visual {
+    min-height: 210px;
+  }
+
+  .feature-icon,
+  .feature-icon-plane,
+  .feature-icon-lock,
+  .feature-icon-team {
+    width: 170px;
+    height: 170px;
+  }
+
+  .feature-item-body {
+    padding: 0 24px 28px;
+  }
+
+  .feature-item-body h3 {
+    font-size: 20px;
+  }
+
+  .feature-item-body p {
+    font-size: 16px;
+  }
+}
   </style>
 </head>
 
@@ -1201,31 +1394,108 @@
   </div>
 </section>
 
-    <section class="container section" id="tools">
+    <section class="feature-grid-section" id="tools">
+  <div class="container feature-grid-shell">
+    <div class="feature-grid-head">
       <div class="eyebrow">Возможности</div>
 
-      <h2 class="section-title">Красивые плитки и функции, которые хочется показывать.</h2>
+      <h2 class="feature-grid-title">
+        Возможности SilentGram,
+        <br />
+        которые хочется показывать.
+      </h2>
+    </div>
 
-      <div class="cards">
-        <article class="card">
-          <div class="card-icon">☾</div>
-          <h3>Тихий режим</h3>
-          <p>Аккуратная функция в премиальной золотой плитке без холодных синих оттенков.</p>
-        </article>
+    <div class="feature-grid">
+      <article class="feature-item">
+        <div class="feature-visual">
+          <div class="feature-glow"></div>
+          <svg class="feature-icon feature-icon-plane" viewBox="0 0 120 120" aria-hidden="true">
+            <path
+              d="M18 63L92 28C98 25 103 31 100 37L73 92C70 99 62 99 58 93L48 71L24 66C18 65 15 62 18 63Z"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5.5"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M48 70L75 45"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5.5"
+              stroke-linecap="round"
+            />
+            <ellipse cx="60" cy="60" rx="40" ry="17" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.2"/>
+          </svg>
+        </div>
 
-        <article class="card">
-          <div class="card-icon">◇</div>
-          <h3>Скрытые чаты</h3>
-          <p>Приватные сценарии в более дорогой и спокойной визуальной оболочке.</p>
-        </article>
+        <div class="feature-item-body">
+          <h3>Основа Telegram</h3>
+          <p>
+            Полная совместимость с привычным опытом Telegram — без ощущения,
+            что ты пользуешься чем-то чужим или сырым.
+          </p>
+        </div>
+      </article>
 
-        <article class="card">
-          <div class="card-icon">◎</div>
-          <h3>Умный перевод</h3>
-          <p>Лёгкий перевод сообщений без лишних действий.</p>
-        </article>
-      </div>
-    </section>
+      <article class="feature-item">
+        <div class="feature-visual">
+          <div class="feature-glow"></div>
+          <svg class="feature-icon feature-icon-lock" viewBox="0 0 120 120" aria-hidden="true">
+            <rect x="35" y="48" width="50" height="42" rx="10" fill="none" stroke="currentColor" stroke-width="5"/>
+            <path
+              d="M45 48V38C45 29 51 22 60 22C69 22 75 29 75 38V48"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+            />
+            <path
+              d="M56 67L64 75L77 58"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <ellipse cx="60" cy="86" rx="32" ry="12" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.2"/>
+          </svg>
+        </div>
+
+        <div class="feature-item-body">
+          <h3>Приватность и контроль</h3>
+          <p>
+            Скрытые сценарии, более аккуратная работа с чатами и ощущение
+            закрытого, более личного пространства.
+          </p>
+        </div>
+      </article>
+
+      <article class="feature-item">
+        <div class="feature-visual">
+          <div class="feature-glow"></div>
+          <svg class="feature-icon feature-icon-team" viewBox="0 0 120 120" aria-hidden="true">
+            <circle cx="43" cy="42" r="10" fill="none" stroke="currentColor" stroke-width="4.5"/>
+            <circle cx="77" cy="42" r="10" fill="none" stroke="currentColor" stroke-width="4.5"/>
+            <circle cx="60" cy="33" r="12" fill="none" stroke="currentColor" stroke-width="4.5"/>
+            <path d="M28 82C30 68 39 61 52 61" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M92 82C90 68 81 61 68 61" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M40 88C42 71 50 62 60 62C70 62 78 71 80 88" fill="none" stroke="currentColor" stroke-width="4.5" stroke-linecap="round"/>
+            <ellipse cx="60" cy="92" rx="34" ry="10" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="1.2"/>
+          </svg>
+        </div>
+
+        <div class="feature-item-body">
+          <h3>Для людей и работы</h3>
+          <p>
+            Удобные функции для общения, быстрых действий и повседневной
+            продуктивности — в более дорогой оболочке.
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
     <section class="container section" id="faq">
       <div class="cta">
