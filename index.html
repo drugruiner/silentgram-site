@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#050505" />
   <title>SilentGram — премиальный Telegram-клиент</title>
 
   <style>
@@ -34,63 +33,57 @@
     }
 
     .page {
-      position: relative;
       min-height: 100vh;
+      position: relative;
       overflow: hidden;
-    }
-
-    .bg {
-      position: absolute;
-      inset: 0;
-      z-index: -5;
       background:
-        radial-gradient(circle at 72% 8%, rgba(208, 171, 102, 0.18), transparent 32%),
-        linear-gradient(180deg, #050505, #080706 50%, #050505);
+        radial-gradient(circle at 72% 12%, rgba(208, 171, 102, 0.16), transparent 30%),
+        linear-gradient(180deg, #050505 0%, #080706 45%, #050505 100%);
     }
 
-    .dots {
+    .page::before {
+      content: "";
       position: absolute;
       inset: 0;
-      z-index: -4;
       opacity: 0.08;
-      background-image: radial-gradient(circle, rgba(208, 171, 102, 0.72) 1px, transparent 1.4px);
+      pointer-events: none;
+      background-image: radial-gradient(circle, rgba(208, 171, 102, 0.75) 1px, transparent 1.4px);
       background-size: 22px 22px;
-    }
-
-    .v-line {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 1px;
-      background: linear-gradient(180deg, transparent, rgba(156, 122, 70, 0.46), transparent);
-      z-index: -3;
-    }
-
-    .v-line.left {
-      left: 36px;
-    }
-
-    .v-line.mid {
-      left: 53%;
-    }
-
-    .v-line.right {
-      right: 36px;
+      mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
     }
 
     .top-line {
       position: absolute;
       top: 0;
       left: 50%;
-      width: 260px;
+      width: 280px;
       height: 2px;
       transform: translateX(-50%);
       background: linear-gradient(90deg, transparent, #d0ab66, transparent);
     }
 
-    .wrap {
-      width: min(100% - 48px, 1480px);
+    .side-line {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(208, 171, 102, 0.3), transparent);
+      pointer-events: none;
+    }
+
+    .side-line.left {
+      left: 36px;
+    }
+
+    .side-line.right {
+      right: 36px;
+    }
+
+    .container {
+      width: min(100% - 56px, 1520px);
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .header {
@@ -98,121 +91,126 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-bottom: 1px solid rgba(208, 171, 102, 0.1);
     }
 
     .logo {
       display: flex;
-      gap: 12px;
       align-items: center;
-      font-weight: 760;
-      color: #e8e2d9;
+      gap: 12px;
+      color: #f3eadb;
+      font-weight: 700;
+      font-size: 18px;
     }
 
     .logo-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 16px;
-      border: 1px solid rgba(208, 171, 102, 0.18);
-      background: #15120d;
-      color: #d8c19a;
+      width: 38px;
+      height: 38px;
+      border-radius: 14px;
       display: grid;
       place-items: center;
+      color: #d0ab66;
+      background: #14110d;
+      border: 1px solid rgba(208, 171, 102, 0.18);
     }
 
     .nav {
       display: flex;
+      align-items: center;
       gap: 30px;
-      font-size: 14px;
       color: #c8c0b5;
-    }
-
-    .nav a {
-      transition: color 0.25s ease;
+      font-size: 14px;
     }
 
     .nav a:hover {
       color: #fff;
     }
 
-    .header-button {
-      border: 1px solid rgba(208, 171, 102, 0.2);
-      background: #15120d;
-      color: #eadcc2;
+    .header-cta {
       padding: 10px 18px;
       border-radius: 999px;
-      font-weight: 650;
+      background: #15120d;
+      border: 1px solid rgba(208, 171, 102, 0.22);
+      color: #eadcc2;
       font-size: 14px;
+      font-weight: 650;
     }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.02fr 0.98fr;
-      gap: 44px;
-      align-items: center;
+      grid-template-columns: minmax(0, 0.96fr) minmax(480px, 1.04fr);
       min-height: calc(100vh - 76px);
-      padding: 30px 0 90px;
+      border-bottom: 1px solid rgba(208, 171, 102, 0.12);
     }
 
-    .badge {
-      display: inline-flex;
-      background: rgba(208, 171, 102, 0.08);
-      border: 1px solid rgba(208, 171, 102, 0.16);
-      color: #d0ab66;
+    .hero-copy {
+      padding: 62px 64px 44px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid rgba(208, 171, 102, 0.13);
+    }
+
+    .eyebrow {
+      width: fit-content;
+      max-width: 100%;
       padding: 13px 16px;
-      font-size: 13px;
-      font-weight: 760;
+      background: rgba(208, 171, 102, 0.09);
+      border: 1px solid rgba(208, 171, 102, 0.18);
+      color: #d0ab66;
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: 700;
     }
 
-    .title {
-      margin: 30px 0 0;
-      max-width: 940px;
-      color: #fff;
-      font-size: clamp(52px, 6.8vw, 88px);
-      line-height: 0.98;
-      letter-spacing: -0.062em;
-      font-weight: 500;
+    .hero-title {
+      margin: 34px 0 0;
+      max-width: 780px;
+      color: #ffffff;
+      font-size: clamp(46px, 4.9vw, 76px);
+      line-height: 1.03;
+      letter-spacing: -0.055em;
+      font-weight: 520;
     }
 
-    .title span {
+    .hero-title span {
       color: #d0ab66;
     }
 
-    .lead {
-      margin: 34px 0 0;
-      max-width: 760px;
-      color: rgba(245, 239, 231, 0.86);
-      font-size: 21px;
+    .hero-text {
+      margin: 32px 0 0;
+      max-width: 680px;
+      color: rgba(245, 239, 231, 0.84);
+      font-size: 20px;
       line-height: 1.65;
     }
 
     .install-button {
       position: relative;
       isolation: isolate;
+      margin-top: 42px;
+      width: fit-content;
+      min-width: 285px;
+      height: 62px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      margin-top: 44px;
-      min-width: 292px;
-      height: 64px;
       padding: 0 30px;
-      border: 1px solid rgba(208, 171, 102, 0.28);
       background: #11100d;
+      border: 1px solid rgba(208, 171, 102, 0.3);
       color: #f7f1e7;
-      overflow: hidden;
       font-size: 16px;
-      font-weight: 780;
-      transition:
-        transform 0.25s ease,
-        color 0.25s ease,
-        border-color 0.25s ease;
+      font-weight: 750;
+      overflow: hidden;
+      transition: transform 0.25s ease, color 0.25s ease, border-color 0.25s ease;
     }
 
     .install-button::before {
       content: "";
       position: absolute;
       inset: 0;
-      width: 0;
-      background: linear-gradient(90deg, #a97834, #d0ab66 58%, #ebd092);
+      width: 0%;
+      background: linear-gradient(90deg, #a97834 0%, #d0ab66 55%, #ebd092 100%);
       z-index: -1;
       transition: width 0.48s cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -220,7 +218,7 @@
     .install-button:hover {
       transform: translateY(-2px);
       color: #17110a;
-      border-color: rgba(208, 171, 102, 0.48);
+      border-color: rgba(208, 171, 102, 0.52);
     }
 
     .install-button:hover::before {
@@ -230,19 +228,21 @@
     .hero-links {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      margin-top: 78px;
+      margin-top: 72px;
       border-top: 1px solid rgba(208, 171, 102, 0.13);
       border-bottom: 1px solid rgba(208, 171, 102, 0.13);
     }
 
     .hero-links a {
+      min-height: 64px;
+      padding: 0 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 64px;
-      padding: 0 22px;
       border-right: 1px solid rgba(208, 171, 102, 0.13);
-      font-weight: 760;
+      color: #fff;
+      font-weight: 720;
+      font-size: 14px;
     }
 
     .hero-links a:last-child {
@@ -251,23 +251,25 @@
 
     .hero-links small {
       display: block;
-      color: #d0ab66;
       margin-top: 4px;
-      font-size: 13px;
+      color: #d0ab66;
+      font-size: 12px;
+      font-weight: 650;
     }
 
-    .devices {
+    .hero-visual {
       position: relative;
-      min-height: 630px;
+      min-height: 660px;
+      overflow: hidden;
     }
 
-    .devices::before {
+    .hero-visual::before {
       content: "";
       position: absolute;
       inset: 0;
       margin: auto;
-      width: 650px;
-      height: 650px;
+      width: 720px;
+      height: 720px;
       border-radius: 50%;
       background: radial-gradient(circle, rgba(208, 171, 102, 0.18), rgba(208, 171, 102, 0.04) 48%, transparent 72%);
       filter: blur(18px);
@@ -275,29 +277,30 @@
 
     .phone {
       position: absolute;
-      width: 330px;
-      height: 610px;
-      border-radius: 48px;
+      width: 300px;
+      height: 555px;
+      border-radius: 44px;
       border: 1px solid rgba(208, 171, 102, 0.22);
       background: linear-gradient(180deg, #171717, #050505);
       box-shadow:
-        0 34px 95px rgba(0, 0, 0, 0.66),
+        0 34px 95px rgba(0, 0, 0, 0.7),
         inset 0 0 0 7px #0a0a0a;
       overflow: hidden;
     }
 
-    .phone.primary {
-      left: 4%;
-      top: 3%;
-      transform: rotate(-2deg);
+    .phone.main {
+      left: 11%;
+      top: 11%;
       z-index: 2;
+      transform: rotate(-2deg);
     }
 
-    .phone.secondary {
-      right: 2%;
-      top: 13%;
-      transform: rotate(5deg);
+    .phone.back {
+      right: 7%;
+      top: 19%;
       z-index: 1;
+      transform: rotate(5deg);
+      opacity: 0.92;
     }
 
     .island {
@@ -311,48 +314,49 @@
       background: #050505;
     }
 
-    .phone-ui {
-      padding: 58px 22px 20px;
+    .phone-inner {
+      padding: 56px 20px 18px;
     }
 
     .phone-bar {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       color: #eee;
       font-size: 13px;
     }
 
     .phone-title {
+      margin: 18px 0 12px;
       text-align: center;
       color: #e6e1d8;
-      font-weight: 760;
-      margin: 18px 0 12px;
+      font-weight: 700;
     }
 
-    .phone-search {
+    .search {
       height: 36px;
+      margin-bottom: 16px;
+      padding: 0 14px;
       border-radius: 10px;
       background: #090909;
       color: #777;
       display: flex;
       align-items: center;
-      padding: 0 14px;
       font-size: 13px;
-      margin-bottom: 16px;
     }
 
     .chat {
       display: flex;
-      gap: 12px;
       align-items: center;
-      padding: 11px 0;
+      gap: 12px;
+      padding: 10px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.055);
     }
 
     .avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
       background: linear-gradient(135deg, #d0ab66, #40301b);
       flex: 0 0 auto;
     }
@@ -360,29 +364,30 @@
     .chat b {
       display: block;
       color: #e8e3da;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .chat span {
       display: block;
+      margin-top: 4px;
       color: #858585;
       font-size: 12px;
-      margin-top: 4px;
     }
 
-    .panel {
+    .focus-panel {
       padding-top: 78px;
     }
 
-    .panel small {
+    .focus-panel small {
       color: #a59a89;
     }
 
-    .panel-title {
+    .focus-panel h3 {
       margin: 20px 0 8px;
       color: #e7e2d8;
-      font-size: 34px;
-      font-weight: 760;
+      font-size: 32px;
+      line-height: 1;
+      font-weight: 750;
       letter-spacing: -0.04em;
     }
 
@@ -395,8 +400,8 @@
 
     .quick-actions div {
       height: 38px;
-      border: 1px solid rgba(208, 171, 102, 0.13);
       border-radius: 14px;
+      border: 1px solid rgba(208, 171, 102, 0.13);
       background: #111;
       color: #d8c19a;
       display: grid;
@@ -404,39 +409,42 @@
       font-size: 12px;
     }
 
-    .phone-item {
+    .metric {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       padding: 17px 0;
       border-bottom: 1px solid rgba(255, 255, 255, 0.055);
       color: #d8d2c8;
     }
 
-    .phone-item span {
-      color: #777;
-      font-size: 12px;
+    .metric span {
+      color: #a59a89;
     }
 
     .section {
-      padding: 88px 0;
+      padding: 90px 0;
     }
 
-    .h2 {
-      font-size: clamp(40px, 6vw, 64px);
-      line-height: 1;
-      letter-spacing: -0.046em;
-      color: #d1d5db;
+    .section-title {
+      max-width: 850px;
       margin: 22px 0 0;
+      color: #d1d5db;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 750;
     }
 
-    .text {
-      color: rgba(245, 239, 231, 0.86);
+    .section-text {
+      max-width: 720px;
+      margin-top: 22px;
+      color: rgba(245, 239, 231, 0.84);
       font-size: 18px;
       line-height: 1.65;
-      max-width: 730px;
     }
 
-    .grid {
+    .cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
@@ -444,17 +452,29 @@
     }
 
     .card {
+      padding: 28px;
+      border-radius: 32px;
       border: 1px solid rgba(208, 171, 102, 0.12);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018));
       box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
-      border-radius: 32px;
-      padding: 28px;
+    }
+
+    .card-icon {
+      width: 52px;
+      height: 52px;
+      margin-bottom: 26px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      border: 1px solid rgba(208, 171, 102, 0.12);
+      background: #16120e;
+      color: #d3b06f;
     }
 
     .card h3 {
+      margin: 0 0 12px;
       color: #d0d4db;
       font-size: 24px;
-      margin: 0 0 12px;
     }
 
     .card p {
@@ -462,79 +482,80 @@
       line-height: 1.6;
     }
 
-    .icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 18px;
-      border: 1px solid rgba(208, 171, 102, 0.12);
-      background: #16120e;
-      color: #d3b06f;
-      display: grid;
-      place-items: center;
-      margin-bottom: 26px;
-    }
-
     .cta {
-      text-align: center;
       padding: 56px;
-      border: 1px solid rgba(208, 171, 102, 0.14);
+      text-align: center;
       border-radius: 44px;
+      border: 1px solid rgba(208, 171, 102, 0.14);
       background: linear-gradient(135deg, rgba(208, 171, 102, 0.18), rgba(67, 50, 28, 0.36), rgba(255, 255, 255, 0.03));
       box-shadow: 0 25px 90px rgba(0, 0, 0, 0.42);
     }
 
-    .cta .text {
+    .cta .section-title,
+    .cta .section-text {
       margin-left: auto;
       margin-right: auto;
     }
 
     .footer {
+      padding: 32px 0;
       display: flex;
       justify-content: space-between;
       gap: 24px;
       border-top: 1px solid rgba(208, 171, 102, 0.1);
-      padding: 32px 0;
       color: #b9b0a3;
       font-size: 14px;
     }
 
-    @media (max-width: 1050px) {
+    @media (max-width: 1120px) {
       .hero {
         grid-template-columns: 1fr;
       }
 
-      .devices {
+      .hero-copy {
+        border-right: 0;
+        padding-right: 0;
+      }
+
+      .hero-visual {
         min-height: 560px;
       }
 
-      .phone.primary {
-        left: 12%;
+      .phone.main {
+        left: 18%;
       }
 
-      .phone.secondary {
-        right: 12%;
-      }
-
-      .v-line.mid {
-        display: none;
+      .phone.back {
+        right: 18%;
       }
     }
 
-    @media (max-width: 720px) {
-      .wrap {
-        width: min(100% - 32px, 1480px);
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 32px, 1520px);
       }
 
       .nav {
         display: none;
       }
 
-      .title {
-        font-size: clamp(42px, 12vw, 58px);
+      .header-cta {
+        display: none;
       }
 
-      .lead {
-        font-size: 18px;
+      .hero-copy {
+        padding: 44px 0 24px;
+      }
+
+      .hero-title {
+        max-width: 100%;
+        font-size: clamp(36px, 10vw, 52px);
+        line-height: 1.07;
+        letter-spacing: -0.042em;
+      }
+
+      .hero-text {
+        font-size: 17px;
       }
 
       .install-button {
@@ -544,6 +565,7 @@
 
       .hero-links {
         grid-template-columns: 1fr;
+        margin-top: 42px;
       }
 
       .hero-links a {
@@ -551,21 +573,11 @@
         border-bottom: 1px solid rgba(208, 171, 102, 0.13);
       }
 
-      .devices {
-        min-height: 470px;
-        transform: scale(0.82);
-        transform-origin: center top;
+      .hero-visual {
+        display: none;
       }
 
-      .phone.primary {
-        left: 0;
-      }
-
-      .phone.secondary {
-        right: 0;
-      }
-
-      .grid {
+      .cards {
         grid-template-columns: 1fr;
       }
 
@@ -573,507 +585,24 @@
         padding: 32px;
       }
 
-      .v-line {
-        display: none;
-      }
-
       .footer {
         flex-direction: column;
       }
+
+      .side-line {
+        display: none;
+      }
     }
-    .sg-hero {
-  width: min(100% - 48px, 1480px);
-  margin: 0 auto;
-  min-height: calc(100vh - 76px);
-  border-top: 1px solid rgba(208, 171, 102, 0.1);
-}
-
-.sg-hero-grid {
-  display: grid;
-  grid-template-columns: 1.04fr 0.96fr;
-  min-height: calc(100vh - 150px);
-}
-
-.sg-hero-left {
-  padding: 56px 56px 52px 0;
-  border-right: 1px solid rgba(208, 171, 102, 0.14);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.sg-badge {
-  width: fit-content;
-  padding: 13px 16px;
-  background: rgba(208, 171, 102, 0.09);
-  border: 1px solid rgba(208, 171, 102, 0.17);
-  color: #d0ab66;
-  font-size: 14px;
-  font-weight: 700;
-}
-
-.sg-title {
-  margin: 34px 0 0;
-  max-width: 900px;
-  color: #fff;
-  font-size: clamp(52px, 6.8vw, 86px);
-  line-height: 0.98;
-  letter-spacing: -0.062em;
-  font-weight: 500;
-}
-
-.sg-title span {
-  color: #d0ab66;
-}
-
-.sg-description {
-  margin: 36px 0 0;
-  max-width: 760px;
-  color: rgba(245, 239, 231, 0.86);
-  font-size: 21px;
-  line-height: 1.65;
-}
-
-.sg-install {
-  position: relative;
-  isolation: isolate;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 46px;
-  width: fit-content;
-  min-width: 292px;
-  height: 64px;
-  padding: 0 30px;
-  border: 1px solid rgba(208, 171, 102, 0.28);
-  background: #11100d;
-  color: #f7f1e7;
-  overflow: hidden;
-  font-size: 16px;
-  font-weight: 700;
-  transition: transform 0.25s ease, color 0.25s ease, border-color 0.25s ease;
-}
-
-.sg-install::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  width: 0%;
-  background: linear-gradient(90deg, #a97834, #d0ab66 58%, #ebd092);
-  z-index: -1;
-  transition: width 0.48s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.sg-install:hover {
-  transform: translateY(-2px);
-  color: #17110a;
-  border-color: rgba(208, 171, 102, 0.5);
-}
-
-.sg-install:hover::before {
-  width: 100%;
-}
-
-.sg-hero-right {
-  position: relative;
-  min-height: 640px;
-  overflow: hidden;
-}
-
-.sg-hero-right::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  margin: auto;
-  width: 680px;
-  height: 680px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(208, 171, 102, 0.18), rgba(208, 171, 102, 0.04) 48%, transparent 72%);
-  filter: blur(18px);
-}
-
-.sg-phone {
-  position: absolute;
-  width: 330px;
-  height: 610px;
-  border-radius: 48px;
-  border: 1px solid rgba(208, 171, 102, 0.22);
-  background: linear-gradient(180deg, #171717, #050505);
-  box-shadow: 0 34px 95px rgba(0, 0, 0, 0.66), inset 0 0 0 7px #0a0a0a;
-  overflow: hidden;
-}
-
-.sg-phone-main {
-  left: 8%;
-  top: 8%;
-  transform: rotate(-2deg);
-  z-index: 2;
-}
-
-.sg-phone-second {
-  right: 3%;
-  top: 15%;
-  transform: rotate(5deg);
-  z-index: 1;
-}
-
-.sg-island {
-  position: absolute;
-  top: 16px;
-  left: 50%;
-  width: 94px;
-  height: 27px;
-  transform: translateX(-50%);
-  border-radius: 999px;
-  background: #050505;
-}
-
-.sg-phone-ui {
-  padding: 58px 22px 20px;
-}
-
-.sg-phone-top {
-  display: flex;
-  justify-content: space-between;
-  color: #eee;
-  font-size: 13px;
-}
-
-.sg-search {
-  height: 36px;
-  margin: 22px 0 16px;
-  border-radius: 10px;
-  background: #090909;
-  color: #777;
-  display: flex;
-  align-items: center;
-  padding: 0 14px;
-  font-size: 13px;
-}
-
-.sg-chat {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  padding: 11px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
-}
-
-.sg-avatar {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #d0ab66, #40301b);
-  flex: 0 0 auto;
-}
-
-.sg-chat b {
-  display: block;
-  color: #e8e3da;
-  font-size: 14px;
-}
-
-.sg-chat span {
-  display: block;
-  color: #858585;
-  font-size: 12px;
-  margin-top: 4px;
-}
-
-.sg-panel-ui {
-  padding-top: 78px;
-}
-
-.sg-panel-label,
-.sg-panel-text {
-  color: #a59a89;
-  font-size: 13px;
-}
-
-.sg-panel-ui h3 {
-  margin: 20px 0 8px;
-  color: #e7e2d8;
-  font-size: 34px;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-}
-
-.sg-actions {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
-  margin: 24px 0;
-}
-
-.sg-actions div {
-  height: 38px;
-  border: 1px solid rgba(208, 171, 102, 0.13);
-  border-radius: 14px;
-  background: #111;
-  color: #d8c19a;
-  display: grid;
-  place-items: center;
-  font-size: 12px;
-}
-
-.sg-info-row {
-  display: flex;
-  justify-content: space-between;
-  padding: 17px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.055);
-  color: #d8d2c8;
-}
-
-.sg-info-row span {
-  color: #a59a89;
-}
-
-.sg-hero-nav {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border-top: 1px solid rgba(208, 171, 102, 0.13);
-  border-bottom: 1px solid rgba(208, 171, 102, 0.13);
-}
-
-.sg-hero-nav a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  min-height: 64px;
-  padding: 0 24px;
-  border-right: 1px solid rgba(208, 171, 102, 0.13);
-  color: #fff;
-  font-weight: 700;
-}
-
-.sg-hero-nav a:last-child {
-  border-right: 0;
-}
-
-.sg-hero-nav small {
-  display: block;
-  margin-top: 4px;
-  color: #d0ab66;
-  font-size: 13px;
-}
-
-.sg-hero-nav b {
-  color: #8d7a5e;
-  font-size: 22px;
-}
-
-@media (max-width: 1050px) {
-  .sg-hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sg-hero-left {
-    border-right: 0;
-    padding-right: 0;
-  }
-
-  .sg-hero-right {
-    min-height: 600px;
-  }
-
-  .sg-phone-main {
-    left: 13%;
-  }
-
-  .sg-phone-second {
-    right: 13%;
-  }
-}
-
-@media (max-width: 720px) {
-  .sg-hero {
-    width: min(100% - 32px, 1480px);
-  }
-
-  .sg-title {
-    font-size: clamp(42px, 12vw, 58px);
-  }
-
-  .sg-description {
-    font-size: 18px;
-  }
-
-  .sg-install {
-    width: 100%;
-    min-width: 0;
-  }
-
-  .sg-hero-nav {
-    grid-template-columns: 1fr;
-  }
-
-  .sg-hero-nav a {
-    border-right: 0;
-    border-bottom: 1px solid rgba(208, 171, 102, 0.13);
-  }
-
-  .sg-hero-right {
-    min-height: 480px;
-    transform: scale(0.82);
-    transform-origin: center top;
-  }
-
-  .sg-phone-main {
-    left: 0;
-  }
-
-  .sg-phone-second {
-    right: 0;
-  }
-}
-    /* HERO FIX — нормальные пропорции как у референса */
-
-.sg-hero {
-  width: min(100% - 64px, 1580px);
-  min-height: calc(100vh - 76px);
-}
-
-.sg-hero-grid {
-  grid-template-columns: 52% 48%;
-  min-height: 650px;
-  align-items: stretch;
-}
-
-.sg-hero-left {
-  padding: 56px 70px 52px 0;
-  justify-content: center;
-}
-
-.sg-title {
-  max-width: 760px;
-  font-size: clamp(52px, 4.6vw, 76px);
-  line-height: 1.02;
-  letter-spacing: -0.055em;
-  font-weight: 500;
-}
-
-.sg-description {
-  max-width: 660px;
-  font-size: 20px;
-  line-height: 1.65;
-}
-
-.sg-hero-right {
-  min-height: 650px;
-  overflow: hidden;
-}
-
-.sg-phone {
-  width: 300px;
-  height: 555px;
-  border-radius: 44px;
-}
-
-.sg-phone-main {
-  left: 7%;
-  top: 8%;
-}
-
-.sg-phone-second {
-  right: 4%;
-  top: 16%;
-}
-
-.sg-phone-ui {
-  padding: 54px 20px 18px;
-}
-
-.sg-chat {
-  padding: 9px 0;
-}
-
-.sg-avatar {
-  width: 38px;
-  height: 38px;
-}
-
-.sg-hero-nav {
-  margin-top: 0;
-}
-
-@media (max-width: 1200px) {
-  .sg-title {
-    font-size: clamp(46px, 5vw, 64px);
-  }
-
-  .sg-phone {
-    width: 270px;
-    height: 505px;
-  }
-}
-
-@media (max-width: 1050px) {
-  .sg-hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .sg-hero-left {
-    padding-right: 0;
-    border-right: 0;
-  }
-
-  .sg-title {
-    max-width: 900px;
-    font-size: clamp(44px, 8vw, 66px);
-  }
-
-  .sg-hero-right {
-    min-height: 560px;
-  }
-}
-
-@media (max-width: 720px) {
-  .sg-hero {
-    width: min(100% - 32px, 1580px);
-  }
-
-  .sg-title {
-    font-size: clamp(38px, 11vw, 54px);
-    line-height: 1.04;
-  }
-
-  .sg-description {
-    font-size: 18px;
-  }
-
-  .sg-hero-right {
-    min-height: 430px;
-    transform: none;
-  }
-
-  .sg-phone {
-    width: 230px;
-    height: 430px;
-  }
-
-  .sg-phone-main {
-    left: 0;
-    top: 4%;
-  }
-
-  .sg-phone-second {
-    right: -20px;
-    top: 14%;
-  }
-}
   </style>
 </head>
 
 <body>
   <main class="page">
     <div class="top-line"></div>
-    <div class="bg"></div>
-    <div class="dots"></div>
-    <div class="v-line left"></div>
-    <div class="v-line mid"></div>
-    <div class="v-line right"></div>
+    <div class="side-line left"></div>
+    <div class="side-line right"></div>
 
-    <header class="wrap header">
+    <header class="container header">
       <a class="logo" href="#hero">
         <span class="logo-mark">◆</span>
         <span>SilentGram</span>
@@ -1085,223 +614,211 @@
         <a href="#faq">FAQ</a>
       </nav>
 
-      <a class="header-button" href="#install">Скачать</a>
+      <a class="header-cta" href="#install">Скачать</a>
     </header>
 
-    <section class="wrap hero" id="hero">
-      <section class="sg-hero" id="hero">
-  <div class="sg-hero-grid">
-    <div class="sg-hero-left">
-      <div class="sg-badge">
-        Премиальный, приватный и современный клиент для Telegram
+    <section class="container hero" id="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">
+          Премиальный, приватный и современный клиент для Telegram
+        </div>
+
+        <h1 class="hero-title">
+          <span>SilentGram</span> — Премиальный Telegram-клиент для тех, кто ценит приватность
+        </h1>
+
+        <p class="hero-text">
+          Спокойный интерфейс, приватные сценарии, умные инструменты и более дорогой визуальный стиль —
+          всё в одной элегантной оболочке.
+        </p>
+
+        <a class="install-button" id="install" href="#">
+          Установить SilentGram
+        </a>
+
+        <div class="hero-links">
+          <a href="#features">
+            <span>Explore features<small>Преимущества</small></span>
+            <b>↗</b>
+          </a>
+
+          <a href="#tools">
+            <span>Quiet mode<small>Комфорт</small></span>
+            <b>↗</b>
+          </a>
+
+          <a href="#faq">
+            <span>Join the product<small>FAQ</small></span>
+            <b>↗</b>
+          </a>
+        </div>
       </div>
 
-      <h1 class="sg-title">
-        <span>SilentGram</span> — Премиальный Telegram-клиент для тех, кто ценит приватность
-      </h1>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="phone main">
+          <div class="island"></div>
 
-      <p class="sg-description">
-        Спокойный интерфейс, приватные сценарии, умные инструменты и более дорогой визуальный стиль —
-        всё в одной элегантной оболочке.
-      </p>
+          <div class="phone-inner">
+            <div class="phone-bar">
+              <span>9:41</span>
+              <span>Chats</span>
+              <span>•••</span>
+            </div>
 
-      <a class="sg-install" href="#">
-        Установить SilentGram
-      </a>
-    </div>
+            <div class="phone-title">Chats</div>
+            <div class="search">Search for messages or users</div>
 
-    <div class="sg-hero-right" aria-hidden="true">
-      <div class="sg-phone sg-phone-main">
-        <div class="sg-island"></div>
+            <div class="chat">
+              <div class="avatar"></div>
+              <div>
+                <b>Saved Messages</b>
+                <span>image.jpeg</span>
+              </div>
+            </div>
 
-        <div class="sg-phone-ui">
-          <div class="sg-phone-top">
-            <span>9:41</span>
-            <b>Chats</b>
-            <span>•••</span>
-          </div>
+            <div class="chat">
+              <div class="avatar"></div>
+              <div>
+                <b>Andrew Parker</b>
+                <span>IMG_0401.PNG</span>
+              </div>
+            </div>
 
-          <div class="sg-search">Search for messages or users</div>
+            <div class="chat">
+              <div class="avatar"></div>
+              <div>
+                <b>Albert Lasker</b>
+                <span>What about a super idea?</span>
+              </div>
+            </div>
 
-          <div class="sg-chat">
-            <div class="sg-avatar"></div>
-            <div>
-              <b>Saved Messages</b>
-              <span>image.jpeg</span>
+            <div class="chat">
+              <div class="avatar"></div>
+              <div>
+                <b>SilentGram</b>
+                <span>Quiet mode is active</span>
+              </div>
+            </div>
+
+            <div class="chat">
+              <div class="avatar"></div>
+              <div>
+                <b>Julia May</b>
+                <span>Cool, thanks!</span>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div class="sg-chat">
-            <div class="sg-avatar"></div>
-            <div>
-              <b>Andrew Parker</b>
-              <span>IMG_0401.PNG</span>
+        <div class="phone back">
+          <div class="island"></div>
+
+          <div class="phone-inner focus-panel">
+            <div class="phone-bar">
+              <span>9:41</span>
+              <span>All Chats</span>
+              <span>⚙</span>
             </div>
-          </div>
 
-          <div class="sg-chat">
-            <div class="sg-avatar"></div>
-            <div>
-              <b>Albert Lasker</b>
-              <span>What about a super idea?</span>
+            <small>Workspace</small>
+            <h3>Focus Mode</h3>
+            <small>Clean interface enabled</small>
+
+            <div class="quick-actions">
+              <div>Mute</div>
+              <div>Hide</div>
+              <div>Reply</div>
             </div>
-          </div>
 
-          <div class="sg-chat">
-            <div class="sg-avatar"></div>
-            <div>
-              <b>SilentGram</b>
-              <span>Quiet mode is active</span>
+            <div class="metric">
+              <span>Important chats</span>
+              <b>24</b>
             </div>
-          </div>
 
-          <div class="sg-chat">
-            <div class="sg-avatar"></div>
-            <div>
-              <b>Julia May</b>
-              <span>Cool, thanks!</span>
+            <div class="metric">
+              <span>Fast replies</span>
+              <b>12</b>
+            </div>
+
+            <div class="metric">
+              <span>Private folders</span>
+              <b>8</b>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="sg-phone sg-phone-second">
-        <div class="sg-island"></div>
-
-        <div class="sg-phone-ui sg-panel-ui">
-          <div class="sg-phone-top">
-            <span>9:41</span>
-            <b>All Chats</b>
-            <span>⚙</span>
-          </div>
-
-          <p class="sg-panel-label">Workspace</p>
-          <h3>Focus Mode</h3>
-          <p class="sg-panel-text">Clean interface enabled</p>
-
-          <div class="sg-actions">
-            <div>Mute</div>
-            <div>Hide</div>
-            <div>Reply</div>
-          </div>
-
-          <div class="sg-info-row">
-            <span>Important chats</span>
-            <b>24</b>
-          </div>
-
-          <div class="sg-info-row">
-            <span>Fast replies</span>
-            <b>12</b>
-          </div>
-
-          <div class="sg-info-row">
-            <span>Private folders</span>
-            <b>8</b>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="sg-hero-nav">
-    <a href="#features">
-      <span>
-        Explore features
-        <small>Преимущества</small>
-      </span>
-      <b>↗</b>
-    </a>
-
-    <a href="#tools">
-      <span>
-        Quiet mode
-        <small>Комфорт</small>
-      </span>
-      <b>↗</b>
-    </a>
-
-    <a href="#faq">
-      <span>
-        Join the product
-        <small>FAQ</small>
-      </span>
-      <b>↗</b>
-    </a>
-  </div>
-</section>
     </section>
 
-    <section class="wrap section" id="features">
-      <div class="badge">Почему SilentGram</div>
+    <section class="container section" id="features">
+      <div class="eyebrow">Почему SilentGram</div>
 
-      <h2 class="h2">Спокойнее. Дороже. Умнее.</h2>
+      <h2 class="section-title">Спокойнее. Дороже. Умнее.</h2>
 
-      <p class="text">
-        Премиальные плитки, тёплые золотые акценты и выразительные серые заголовки делают сайт
-        статуснее, чище и ближе к продуктовой презентации.
+      <p class="section-text">
+        Премиальные плитки, тёплые золотые акценты и выразительные серые заголовки делают сайт статуснее,
+        чище и ближе к продуктовой презентации.
       </p>
 
-      <div class="grid">
+      <div class="cards">
         <article class="card">
-          <div class="icon">◈</div>
+          <div class="card-icon">◈</div>
           <h3>Приватность по умолчанию</h3>
           <p>Больше контроля над сессиями, уведомлениями и личным пространством.</p>
         </article>
 
         <article class="card">
-          <div class="icon">↯</div>
+          <div class="card-icon">↯</div>
           <h3>Быстрый рабочий поток</h3>
           <p>Чистая навигация по чатам и сценарии для работы без перегруза.</p>
         </article>
 
         <article class="card">
-          <div class="icon">✦</div>
+          <div class="card-icon">✦</div>
           <h3>Умный слой внутри</h3>
           <p>Сводки, быстрые ответы и продуктивные действия там, где они полезны.</p>
         </article>
       </div>
     </section>
 
-    <section class="wrap section" id="tools">
-      <div class="badge">Возможности</div>
+    <section class="container section" id="tools">
+      <div class="eyebrow">Возможности</div>
 
-      <h2 class="h2">Красивые плитки и функции, которые хочется показывать.</h2>
+      <h2 class="section-title">Красивые плитки и функции, которые хочется показывать.</h2>
 
-      <div class="grid">
+      <div class="cards">
         <article class="card">
-          <div class="icon">☾</div>
+          <div class="card-icon">☾</div>
           <h3>Тихий режим</h3>
           <p>Аккуратная функция в премиальной золотой плитке без холодных синих оттенков.</p>
         </article>
 
         <article class="card">
-          <div class="icon">◇</div>
+          <div class="card-icon">◇</div>
           <h3>Скрытые чаты</h3>
           <p>Приватные сценарии в более дорогой и спокойной визуальной оболочке.</p>
         </article>
 
         <article class="card">
-          <div class="icon">◎</div>
+          <div class="card-icon">◎</div>
           <h3>Умный перевод</h3>
           <p>Лёгкий перевод сообщений без лишних действий.</p>
         </article>
       </div>
     </section>
 
-    <section class="wrap section" id="faq">
+    <section class="container section" id="faq">
       <div class="cta">
-        <div class="badge">Готово к следующему этапу</div>
+        <div class="eyebrow">Готово к следующему этапу</div>
 
-        <h2 class="h2">Теперь сайт выглядит ближе к Nicegram, но в стиле SilentGram.</h2>
+        <h2 class="section-title">Теперь сайт выглядит ближе к Nicegram, но в стиле SilentGram.</h2>
 
-        <p class="text">
+        <p class="section-text">
           Дальше подставим реальные скриншоты приложения, ссылки и финальный оффер клиента.
         </p>
       </div>
     </section>
 
-    <footer class="wrap footer">
+    <footer class="container footer">
       <p>© 2026 SilentGram. Все права защищены.</p>
       <p>Премиальный статический landing page для GitHub Pages и VPS.</p>
     </footer>
